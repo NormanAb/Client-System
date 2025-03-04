@@ -9,7 +9,7 @@ import java.sql.*;
 import java.time.LocalDate;
 import java.util.logging.Logger;
 
-public class ClientDAO implements GenericDAO{
+public class ClientDAO {
     private Connection conn;
     private static final Logger logger = Logger.getLogger(UserDAO.class.getName());
 
@@ -33,27 +33,51 @@ public class ClientDAO implements GenericDAO{
         }
     }
 
-    @Override
+
     public Object findById(int id) {
         return null;
     }
 
-    @Override
+
     public void create(Object entity) {
 
     }
 
-    @Override
-    public void update(Object entity) {
 
+    public void update(Client client) {
+           // if(!(entity instanceof Client)){
+            //    throw new IllegalArgumentException("Excepted Autohot object");
+            //}
+
+
+
+            String sql = "UPDATE clients SET Name = ?, Surname = ?, Email = ?, Phone = ? WHERE id = ?";
+            try(PreparedStatement stmt = this.conn.prepareStatement(sql)){
+                stmt.setString(1, client.getName());
+                stmt.setString(2, client.getSurname());
+                stmt.setString(3, client.getEmail());
+                stmt.setString(4, client.getPhone());
+                stmt.setInt(5, client.getId());
+
+                int rowsUpdated = stmt.executeUpdate();
+
+                if(rowsUpdated > 0){
+                    System.out.println("Client updated");
+                }else{
+                    logger.warning("No client found with id: " + client.getId());
+                }
+            }catch (SQLException e){
+                logger.severe("Error updating client: " + e.getMessage());
+                e.printStackTrace();
+            }
     }
 
-    @Override
+
     public void delete(int id) {
 
     }
 
-    @Override
+
     public ObservableList<Client> findAll() {
         ObservableList<Client> clients = FXCollections.observableArrayList();
         String sql = "SELECT id, Name, Surname, Email, Phone FROM Clients";

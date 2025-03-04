@@ -38,4 +38,24 @@ public class Client {
     public SimpleStringProperty surnameProperty() { return surname; }
     public SimpleStringProperty emailProperty() { return email; }
     public SimpleStringProperty phoneProperty() { return phone; }
+
+    public void setId(int id) {
+        this.id.set(id);
+    }
+
+    public void setName(String name) {
+        this.name.set(name);
+    }
+
+    public void setSurname(String surname) {
+        this.surname.set(surname);
+    }
+
+    public void setEmail(String email) {
+        this.email.set(email);
+    }
+
+    public void setPhone(String phone) {
+        this.phone.set(phone);
+    }
 }

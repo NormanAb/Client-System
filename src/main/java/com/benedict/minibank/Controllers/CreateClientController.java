@@ -34,7 +34,7 @@ public class CreateClientController implements Initializable {
         Model.getInstance().loadClients();
         Model.getInstance().createClient(name, surname, email, phone);
         Model.getInstance().getViewFactory().getAdminSelectedMenuItem().set(MenuOptions.CLIENT_LIST);
-        AlertUtility.displayInformation("Autorius išsaugotas sėkmingai");
+        AlertUtility.displayInformation("Klientas išsaugotas sėkmingai");
 
     }
 

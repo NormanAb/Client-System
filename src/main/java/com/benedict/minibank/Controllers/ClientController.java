@@ -2,16 +2,15 @@ package com.benedict.minibank.Controllers;
 
 import com.benedict.minibank.Models.Client;
 import com.benedict.minibank.Models.Model;
+import com.benedict.minibank.Utilities.DialogueUtility;
 import javafx.collections.ObservableList;
 import javafx.fxml.Initializable;
 import com.benedict.minibank.Views.MenuOptions;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.SortEvent;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TableColumn;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 
@@ -44,6 +43,7 @@ public class ClientController implements Initializable {
         initTableColumns(); // Initialize table columns
         loadClientData();   // Load data into the table
         Model.getInstance().getClients();
+        setRowFactoryForClientsTable();
 
         addClient_btn.setOnAction(event -> onCreateClient());
     }
@@ -74,5 +74,26 @@ public class ClientController implements Initializable {
         colSurname.setCellValueFactory(new PropertyValueFactory<>("surname"));
         colEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
         colPhone.setCellValueFactory(new PropertyValueFactory<>("phone"));
+    }
+
+    private void setRowFactoryForClientsTable() {
+        clients_table.setRowFactory(tv -> {
+            TableRow<Client> row = new TableRow<>();
+            row.setOnMouseClicked(event -> {
+                if (event.getClickCount() == 2 && (!row.isEmpty())) {
+                    Client selectedClient = row.getItem();
+                    editClient(selectedClient);
+                }
+            });
+            return row;
+        });
+    }
+
+    private void editClient(Client client){
+        Optional<Client> result = DialogueUtility.showEditClientDialogue(client);
+        result.ifPresent(updateClient -> {
+            Model.getInstance().updateClient(client);
+            System.out.println("Update result");
+        });
     }
 }

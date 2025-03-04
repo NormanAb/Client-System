@@ -8,6 +8,7 @@ import javafx.collections.ObservableList;
 
 
 import java.time.LocalDate;
+import java.util.Optional;
 
 public class Model {
     private static Model model;
@@ -85,6 +86,10 @@ public class Model {
         Client client = new Client(name, surname, email, phone);
 
         clientDAO.create(client);
+    }
+
+    public void updateClient(Client client) {
+        clientDAO.update(client);
     }
 
     //Authors
