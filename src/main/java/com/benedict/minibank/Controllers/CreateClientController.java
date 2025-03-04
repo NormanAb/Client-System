@@ -11,35 +11,37 @@ import javafx.scene.control.TextField;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
+public class CreateClientController implements Initializable {
 
-public class CreateAuthorController implements Initializable {
-    public TextField fName_fld;
-    public TextField lName_fld;
+    public TextField name_fld;
+    public TextField surname_fld;
     public TextField email_fld;
-    public PasswordField city_fld;
-    public Button create_author_btn;
+    public PasswordField phone_fld;
+    public Button create_client_btn;
     public Label error_lbl;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        create_author_btn.setOnAction(event -> onAuthor());
+        create_client_btn.setOnAction(event -> onClient());
     }
 
-    private void onAuthor() {
-        String fName = fName_fld.getText();
-        String lName = lName_fld.getText();
+    private void onClient() {
+        String name = name_fld.getText();
+        String surname= surname_fld.getText();
         String email = email_fld.getText();
-        String city  = city_fld.getText();
-        Model.getInstance().createAuthor(fName, lName, email, city);
-        Model.getInstance().getViewFactory().getAdminSelectedMenuItem().set(MenuOptions.AUTHORS);
+        String phone = phone_fld.getText();
+
+        Model.getInstance().loadClients();
+        Model.getInstance().createClient(name, surname, email, phone);
+        Model.getInstance().getViewFactory().getAdminSelectedMenuItem().set(MenuOptions.CLIENT_LIST);
         AlertUtility.displayInformation("Autorius išsaugotas sėkmingai");
 
     }
 
     private void emptyFields() {
-        fName_fld.setText("");
-        lName_fld.setText("");
+        name_fld.setText("");
+        surname_fld.setText("");
         email_fld.setText("");
-        city_fld.setText("");
+        phone_fld.setText("");
     }
 }

@@ -1,23 +1,24 @@
 package com.benedict.minibank.Models;
 
-import com.benedict.minibank.Services.dao.AuthorDAO;
+import com.benedict.minibank.Services.dao.ClientDAO;
 import com.benedict.minibank.Services.dao.UserDAO;
 import com.benedict.minibank.Views.ViewFactory;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 
-import java.sql.ResultSet;
 import java.time.LocalDate;
-import java.util.List;
 
 public class Model {
     private static Model model;
     private final ViewFactory viewFactory;
     public final UserDAO userDAO;
-    public final AuthorDAO authorDAO;
+    public final ClientDAO authorDAO;
+
+    public final ClientDAO clientDAO;
     private boolean loginSuccessFlag;
-    private final ObservableList<Author> authors;
+
+    private final ObservableList<Client> clients;
     private  User currentUser;
 
 
@@ -25,10 +26,11 @@ public class Model {
     private Model(){
         this.viewFactory = new ViewFactory();
         this.userDAO = new UserDAO(new DatabaseDriver().getConnection());
-        this.authorDAO = new AuthorDAO(new DatabaseDriver().getConnection());
+        this.authorDAO = new ClientDAO(new DatabaseDriver().getConnection());
+        this.clientDAO = new ClientDAO(new DatabaseDriver().getConnection());
         this.loginSuccessFlag = false;
         this.currentUser = null;
-        this.authors = FXCollections.observableArrayList();
+        this.clients = FXCollections.observableArrayList();
     }
 
     public static synchronized Model getInstance(){
@@ -79,16 +81,19 @@ public class Model {
         return currentUser != null ? currentUser.getId() : null;
     }
 
-    public void createAuthor(String fName, String lastName, String email, String city){
-        Author author = new Author(fName, lastName, email, city);
+    public void createClient(String name, String surname, String email, String phone){
+        Client client = new Client(name, surname, email, phone);
 
-        authorDAO.create(author);
+        clientDAO.create(client);
     }
 
     //Authors
-    public ObservableList<Author> getAuthors(){
-        System.out.println(authorDAO.findAll());
-        return  authorDAO.findAll();
+    public ObservableList<Client> getClients(){
+        System.out.println(clientDAO.findAll());
+        return  clientDAO.findAll();
     }
 
+    public void loadClients() {
+        this.clients.setAll(clientDAO.findAll());
+    }
 }

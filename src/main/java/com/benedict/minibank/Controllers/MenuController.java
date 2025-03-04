@@ -13,36 +13,37 @@ import java.util.ResourceBundle;
 public class MenuController implements Initializable {
 
     public Button logout_btn;
-    public Button authors_btn;
-    public Text user_name;
-    public Button income_btn;
+    public Button clients_btn;
+    public Button reports_btn;
+    public Button profile_btn;
+    public Button report_btn;
+    public Button dashboard_btn;
 
 
     @Override
     public void initialize( URL url, ResourceBundle resourceBundle) {
-        System.out.println("Userio info: " + Model.getInstance().getLoggedUserName());
-        user_name.setText(Model.getInstance().getLoggedUserName());
+        dashboard_btn.setOnAction(event -> onDashboard());
+        clients_btn.setOnAction(event -> onClientsList());
         addListeners();
     }
 
 
     private void addListeners(){
-        authors_btn.setOnAction(event->onAuthor());
         logout_btn.setOnAction(event->onLogout());
-        income_btn.setOnAction(event->onIncome());
+
     }
 
-    private void onAuthor(){
-        Model.getInstance().getViewFactory().getAdminSelectedMenuItem().set(MenuOptions.AUTHORS);
+    private void onDashboard() {
+        Model.getInstance().getViewFactory().getAdminSelectedMenuItem().set(MenuOptions.DASHBOARD);
     }
 
-    private void onIncome(){
-        Model.getInstance().getViewFactory().getAdminSelectedMenuItem().set(MenuOptions.INCOME);
+    private void onClientsList() {
+        Model.getInstance().getViewFactory().getAdminSelectedMenuItem().set(MenuOptions.CLIENT_LIST);
     }
 
     private void onLogout(){
         //Get stage
-        Stage stage = (Stage) authors_btn.getScene().getWindow();
+        Stage stage = (Stage) dashboard_btn.getScene().getWindow();
         //Close client window
         Model.getInstance().getViewFactory().closeStage(stage);
         //Show Login Window
@@ -51,6 +52,4 @@ public class MenuController implements Initializable {
         Model.getInstance().setClientAdminSuccessFlag(false);
 
     }
-
-
 }

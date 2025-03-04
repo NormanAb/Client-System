@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 public class ViewFactory {
@@ -14,10 +15,14 @@ public class ViewFactory {
     private AnchorPane createClientView;
     private AnchorPane clientsView;
     private AnchorPane depositView;
-    private AnchorPane authorsView;
+    private AnchorPane ClientsView;
     private AnchorPane createAuthorView;
     private AnchorPane incomeView;
     private AnchorPane createIncome;
+
+    private AnchorPane dashboardView;
+
+    private AnchorPane clientListView;
 
 
     public ViewFactory(){
@@ -48,26 +53,48 @@ public class ViewFactory {
         return adminSelectedMenuItem;
     }
 
-    public AnchorPane getAuthorsView() {
-        if(authorsView == null){
+    public AnchorPane getClientsView() {
+        if(ClientsView == null){
             try {
-                authorsView = new FXMLLoader(getClass().getResource("/Fxml/Authors.fxml")).load();
+                ClientsView = new FXMLLoader(getClass().getResource("/Fxml/ClientsList.fxml")).load();
             }catch (Exception e){
                 System.out.println(e);
             }
         }
-        return authorsView;
+        return ClientsView;
     }
 
-    public AnchorPane getCreateAuthorView() {
-        if(createAuthorView == null){
+    public AnchorPane getCreateClientView() {
+        if(createClientView == null){
             try {
-                createAuthorView = new FXMLLoader(getClass().getResource("/Fxml/CreateAuthor.fxml")).load();
+                createClientView = new FXMLLoader(getClass().getResource("/Fxml/CreateClient.fxml")).load();
             }catch (Exception e){
                 System.out.println(e);
             }
         }
-        return createAuthorView;
+        return createClientView;
+    }
+
+    public AnchorPane getClientListView() {
+        if(clientListView == null){
+            try {
+                clientListView = new FXMLLoader(getClass().getResource("/Fxml/ClientsList.fxml")).load();
+            }catch (Exception e){
+                System.out.println(e);
+            }
+        }
+        return clientListView;
+    }
+
+    public Pane getDashboardView() {
+        if(dashboardView == null){
+            try {
+                dashboardView = new FXMLLoader(getClass().getResource("/Fxml/Dashboard.fxml")).load();
+            }catch (Exception e){
+                System.out.println(e);
+            }
+        }
+        return dashboardView;
     }
 
     public AnchorPane getIncomeView() {

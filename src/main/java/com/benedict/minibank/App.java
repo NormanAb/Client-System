@@ -20,7 +20,6 @@ public class App extends Application {
         } else {
             AlertUtility.displayInformation("Prieš pradedant darbą su sistema turite užregistruoti bent vieną vartotoją");
             Model.getInstance().getViewFactory().showRegisterWindow();
-
         }
 
 
