@@ -2,6 +2,7 @@ package com.benedict.minibank.Controllers;
 
 import com.benedict.minibank.Models.Client;
 import com.benedict.minibank.Models.Model;
+import com.benedict.minibank.Utilities.AlertUtility;
 import com.benedict.minibank.Utilities.DialogueUtility;
 import javafx.collections.ObservableList;
 import javafx.fxml.Initializable;
@@ -10,12 +11,13 @@ import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
-import javafx.scene.control.*;
+import javafx.scene.contgrol.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 
 public class ClientController implements Initializable {
-
+    @FXML
+    public MenuItem delete_btn;
     @FXML
     private Button addClient_btn;
 
@@ -45,6 +47,8 @@ public class ClientController implements Initializable {
         Model.getInstance().getClients();
         setRowFactoryForClientsTable();
 
+
+        delete_btn.setOnAction(event ->onDeleteClient());
         addClient_btn.setOnAction(event -> onCreateClient());
     }
 
@@ -95,5 +99,23 @@ public class ClientController implements Initializable {
             Model.getInstance().updateClient(client);
             System.out.println("Update result");
         });
+    }
+
+    private void onDeleteClient() {
+        Client selectedClient = (Client) clients_table.getSelectionModel().getSelectedItem();
+        if (selectedClient == null) {
+            AlertUtility.displayError("Error selecting client");
+        }
+
+        boolean confirmed = AlertUtility.displayConfirmation(
+                "Are you sure you want to delete author?"
+        );
+
+        if (confirmed) {
+            Model.getInstance().deleteClient(selectedClient.getId());
+            ObservableList<Client> clients = clients_table.getItems();
+            clients.remove(selectedClient);
+            AlertUtility.displayInformation("Client has been removed successfully");
+        }
     }
 }

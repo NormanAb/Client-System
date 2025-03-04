@@ -19,7 +19,7 @@
         <Text layoutX="751.0" layoutY="345.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="section_title" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="340.0" />
         <AnchorPane layoutX="10.0" layoutY="103.0" prefHeight="633.0" prefWidth="829.0" styleClass="client_down">
             <children>
-                <TableView fx:id="clients_table" layoutX="16.0" layoutY="17.0" onSort="#clients_table" prefHeight="600.0" prefWidth="798.0">
+                <TableView fx:id="clients_table" layoutX="16.0" layoutY="17.0" prefHeight="600.0" prefWidth="798.0">
                     <columns>
                         <TableColumn fx:id="colId" prefWidth="58.0" text="ID" />
                         <TableColumn fx:id="colName" prefWidth="183.0" text="Name" />
@@ -31,7 +31,7 @@
                <contextMenu>
                   <ContextMenu>
                     <items>
-                      <MenuItem mnemonicParsing="false" text="Unspecified Action" />
+                      <MenuItem fx:id="delete_btn" mnemonicParsing="false" text="Delete" />
                     </items>
                   </ContextMenu>
                </contextMenu>
@@ -44,7 +44,7 @@
                 <Label layoutX="711.0" layoutY="30.0" styleClass="date_lbl" text="Šiandien 2024-12-28" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="30.0" />
                 <HBox alignment="CENTER" layoutX="154.0" prefHeight="76.0" prefWidth="548.0" spacing="10.0">
                     <children>
-                        <Button fx:id="addClient_btn" mnemonicParsing="false" onAction="#onCreateClient" prefHeight="28.0" prefWidth="248.0" text="Add Client" styleClass="left_container">
+                        <Button fx:id="addClient_btn" mnemonicParsing="false" onAction="#onCreateClient" prefHeight="28.0" prefWidth="248.0" styleClass="date_lbl" text="Add Client">
                             <graphic>
                                 <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                     <image>

@@ -74,7 +74,20 @@ public class ClientDAO {
 
 
     public void delete(int id) {
-
+        String sql = "DELETE FROM Clients WHERE id = ?";
+        try(PreparedStatement stmt = this.conn.prepareStatement(sql)) {
+            stmt.setInt(1, id);
+            int rowsAffected = stmt.executeUpdate();
+            if (rowsAffected > 0) {
+                System.out.println("Client with id" + id + " was successfully deleted");
+            } else {
+                System.out.println("No client was found with id " + id );
+            }
+        }
+        catch (SQLException e) {
+            System.out.println("Error deleting Client with id " + id);
+            e.printStackTrace();
+        }
     }
 
 

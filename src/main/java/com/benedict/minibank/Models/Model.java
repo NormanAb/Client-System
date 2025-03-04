@@ -82,6 +82,9 @@ public class Model {
         return currentUser != null ? currentUser.getId() : null;
     }
 
+    public void deleteClient(int id) {
+        clientDAO.delete(id);
+    }
     public void createClient(String name, String surname, String email, String phone){
         Client client = new Client(name, surname, email, phone);
 

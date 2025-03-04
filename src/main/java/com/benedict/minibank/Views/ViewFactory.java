@@ -54,16 +54,15 @@ public class ViewFactory {
     }
 
     public AnchorPane getClientsView() {
-        if(ClientsView == null){
+  //      if(ClientsView == null){
             try {
                 ClientsView = new FXMLLoader(getClass().getResource("/Fxml/ClientsList.fxml")).load();
             }catch (Exception e){
                 System.out.println(e);
             }
-        }
+       // }
         return ClientsView;
-    }
-
+   }
     public AnchorPane getCreateClientView() {
         if(createClientView == null){
             try {
