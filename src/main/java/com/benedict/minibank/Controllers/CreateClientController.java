@@ -31,10 +31,11 @@ public class CreateClientController implements Initializable {
         String email = email_fld.getText();
         String phone = phone_fld.getText();
 
-        Model.getInstance().loadClients();
         Model.getInstance().createClient(name, surname, email, phone);
+        Model.getInstance().loadClients();
         Model.getInstance().getViewFactory().getAdminSelectedMenuItem().set(MenuOptions.CLIENT_LIST);
         AlertUtility.displayInformation("Klientas išsaugotas sėkmingai");
+
 
     }
 

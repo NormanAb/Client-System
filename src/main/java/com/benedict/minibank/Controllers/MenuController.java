@@ -20,10 +20,12 @@ public class MenuController implements Initializable {
     public Button dashboard_btn;
 
 
+
     @Override
     public void initialize( URL url, ResourceBundle resourceBundle) {
         dashboard_btn.setOnAction(event -> onDashboard());
         clients_btn.setOnAction(event -> onClientsList());
+        reports_btn.setOnAction(event -> onReportsList());
         addListeners();
     }
 
@@ -39,6 +41,10 @@ public class MenuController implements Initializable {
 
     private void onClientsList() {
         Model.getInstance().getViewFactory().getAdminSelectedMenuItem().set(MenuOptions.CLIENT_LIST);
+    }
+
+    private void onReportsList() {
+        Model.getInstance().getViewFactory().getAdminSelectedMenuItem().set(MenuOptions.REPORT_LIST);
     }
 
     private void onLogout(){

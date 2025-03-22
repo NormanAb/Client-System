@@ -4,6 +4,7 @@ import com.benedict.minibank.Models.Client;
 import com.benedict.minibank.Models.Model;
 import com.benedict.minibank.Utilities.AlertUtility;
 import com.benedict.minibank.Utilities.DialogueUtility;
+import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.fxml.Initializable;
 import com.benedict.minibank.Views.MenuOptions;
@@ -50,12 +51,19 @@ public class ClientController implements Initializable {
 
         delete_btn.setOnAction(event ->onDeleteClient());
         addClient_btn.setOnAction(event -> onCreateClient());
+
+        Model.getInstance().getViewFactory().getAdminSelectedMenuItem().addListener((obs, oldVal, newVal) -> {
+            if (newVal == MenuOptions.CLIENT_LIST) {
+                loadClientData(); // Reload data when returning to this view
+            }
+        });
     }
 
     private void loadClientData() {
         // Fetch client data from the Model and populate the table
         ObservableList<Client> clients = Model.getInstance().getClients();
-        clients_table.setItems(clients);
+        Model.getInstance().loadClients();
+        clients_table.setItems(Model.getInstance().getClients());
     }
 
     @FXML

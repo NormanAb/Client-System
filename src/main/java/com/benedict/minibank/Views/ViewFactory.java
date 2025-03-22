@@ -10,7 +10,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
-public class ViewFactory {
+public class
+ViewFactory {
     private final ObjectProperty<MenuOptions> adminSelectedMenuItem;
     private AnchorPane createClientView;
     private AnchorPane clientsView;
@@ -23,6 +24,8 @@ public class ViewFactory {
     private AnchorPane dashboardView;
 
     private AnchorPane clientListView;
+
+    private AnchorPane reportListView;
 
 
     public ViewFactory(){
@@ -83,6 +86,17 @@ public class ViewFactory {
             }
         }
         return clientListView;
+    }
+
+    public AnchorPane getReportListView() {
+        if(reportListView == null){
+            try {
+                reportListView = new FXMLLoader(getClass().getResource("/Fxml/Reports.fxml")).load();
+            }catch (Exception e){
+                System.out.println(e);
+            }
+        }
+        return reportListView;
     }
 
     public Pane getDashboardView() {
