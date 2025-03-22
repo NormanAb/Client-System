@@ -15,7 +15,7 @@ public class MenuController implements Initializable {
     public Button logout_btn;
     public Button clients_btn;
     public Button reports_btn;
-    public Button profile_btn;
+    public Button settings_btn;
     public Button report_btn;
     public Button dashboard_btn;
 
@@ -26,6 +26,7 @@ public class MenuController implements Initializable {
         dashboard_btn.setOnAction(event -> onDashboard());
         clients_btn.setOnAction(event -> onClientsList());
         reports_btn.setOnAction(event -> onReportsList());
+        settings_btn.setOnAction(event -> onSettings());
         addListeners();
     }
 
@@ -45,6 +46,10 @@ public class MenuController implements Initializable {
 
     private void onReportsList() {
         Model.getInstance().getViewFactory().getAdminSelectedMenuItem().set(MenuOptions.REPORT_LIST);
+    }
+
+    private void onSettings() {
+        Model.getInstance().getViewFactory().getAdminSelectedMenuItem().set(MenuOptions.SETTINGS);
     }
 
     private void onLogout(){

@@ -1,0 +1,230 @@
+
+
+/* Pastel Blue Button Style */
+.pastel-button {
+    /* A gentle pastel blue gradient */
+    -fx-background-color: linear-gradient(to bottom, #A3CFF0, #80BFE0);
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 14px;
+    -fx-padding: 10 20;
+    -fx-background-radius: 5;
+    -fx-border-radius: 5;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.2), 4, 0, 0, 2);
+    -fx-cursor: hand;
+}
+
+.pastel-button:hover {
+    /* Slightly lighter blue on hover */
+    -fx-background-color: linear-gradient(to bottom, #B3D4F7, #8CBEE8);
+}
+
+.pastel-button:pressed {
+    /* Reversed gradient with an inner shadow effect for a pressed look */
+    -fx-background-color: linear-gradient(to bottom, #80BFE0, #A3CFF0);
+    -fx-effect: innershadow(gaussian, rgba(0, 0, 0, 0.2), 4, 0, 0, 2);
+}
+
+
+/* Pastel Blue TableView Style */
+.table-view {
+    -fx-background-color: transparent;
+    -fx-table-cell-border-color: transparent;
+    -fx-padding: 10;
+}
+
+/* Header Background */
+.table-view .column-header-background {
+    -fx-background-color: #D7E8F2;
+}
+
+/* Column Header Style */
+.table-view .column-header,
+.table-view .filler {
+    -fx-background-color: #D7E8F2;
+    -fx-border-color: #A3CFF0;
+    -fx-border-width: 0 0 1 0;
+    -fx-alignment: CENTER;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333;
+}
+
+/* Row and Cell Styles */
+.table-view .table-row-cell {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: transparent;
+}
+
+.table-view .table-row-cell:filled:selected,
+.table-view .table-row-cell:selected {
+    -fx-background-color: #CCE4F7;
+}
+
+.table-view .table-cell {
+    -fx-alignment: CENTER;
+    -fx-padding: 8px;
+    -fx-border-color: transparent;
+}
+
+/* Alternating Row Color for Readability */
+.table-view .table-row-cell:odd {
+    -fx-background-color: #F5FAFC;
+}
+
+
+/* ============================= */
+/* Pastel Blue Label and Text    */
+/* ============================= */
+
+/* Labels: used for any Label controls */
+.pastel-label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #333333;  /* dark, neutral text */
+    -fx-font-weight: normal;
+}
+
+/* Text nodes (if used outside of Label controls) */
+.pastel-text {
+    -fx-font-size: 16px;
+    -fx-fill: #333333;
+}
+
+/* ============================= */
+/* Pastel Blue CheckBox Style    */
+/* ============================= */
+
+/* Apply this style class to CheckBox controls */
+.pastel-checkbox {
+    -fx-font-size: 14px;
+    -fx-text-fill: #333333;
+}
+
+/* Customize the box (the square) of the checkbox */
+.pastel-checkbox .box {
+    -fx-background-color: linear-gradient(to bottom, #A3CFF0, #80BFE0);
+    -fx-background-radius: 3;
+    -fx-border-color: #80BFE0;
+    -fx-border-width: 1;
+    -fx-border-radius: 3;
+}
+
+/* When the checkbox is selected, change the box background */
+.pastel-checkbox:selected .box {
+    -fx-background-color: #CCE4F7;
+}
+
+/* ============================= */
+/* Pastel Blue ComboBox Style    */
+/* ============================= */
+
+/* Apply this style class to ComboBox controls */
+.pastel-combobox {
+    -fx-background-color: linear-gradient(to bottom, #A3CFF0, #80BFE0);
+    -fx-text-fill: #ffffff;       /* white text for contrast */
+    -fx-font-size: 14px;
+    -fx-background-radius: 5;
+    -fx-padding: 5 10;
+}
+
+/* Remove the default focus border (optional) */
+.pastel-combobox:focused {
+    -fx-border-color: transparent;
+}
+
+/* Style the arrow button within the ComboBox */
+.pastel-combobox .arrow-button {
+    -fx-background-color: transparent;
+}
+
+/* Style the arrow graphic */
+.pastel-combobox .arrow {
+    -fx-background-color: #80BFE0;
+    -fx-background-radius: 5;
+}
+
+
+
+
+
+/* ----------------------------- */
+/* Pastel Page Background Style  */
+/* ----------------------------- */
+.pastel-page {
+    /* A gentle vertical gradient for the overall page background */
+    -fx-background-color: linear-gradient(to bottom, #E8F5FF, #B3D4F7);
+}
+
+/* ----------------------------- */
+/* Pastel TabPane Style          */
+/* ----------------------------- */
+
+/* Base style for a TabPane with pastel theme */
+.pastel-tab-pane {
+    -fx-background-color: transparent; /* Let the page background show through */
+}
+
+/* Tab header area style (the area containing the tabs) */
+.pastel-tab-pane .tab-header-area {
+    -fx-background-color: #D7E8F2;  /* A soft pastel blue for the header area */
+    -fx-padding: 10 10 0 10;
+}
+
+/* Individual tab header style */
+.pastel-tab-pane .tab-header-area .tab {
+    /* A gradient background for each tab header */
+    -fx-background-color: linear-gradient(to bottom, #A3CFF0, #80BFE0);
+    -fx-text-base-color: #FFFFFF;  /* White text for contrast */
+    -fx-padding: 8 15;
+    -fx-background-radius: 5 5 0 0;
+    -fx-border-width: 0 0 2 0;
+    -fx-border-color: transparent;
+}
+
+/* Style for the selected (active) tab header */
+.pastel-tab-pane .tab-header-area .tab:selected {
+    -fx-background-color: linear-gradient(to bottom, #80BFE0, #A3CFF0);
+    -fx-border-color: #80BFE0;  /* Subtle border highlight on selected tab */
+}
+
+/* Style for the area where the tab content is displayed */
+.pastel-tab-pane .tab-content-area {
+    -fx-background-color: #FFFFFF; /* White background for content for clarity */
+    -fx-padding: 10;
+}
+``
+
+
+/* ------------------------------- */
+/* Pastel Menu Container (AnchorPane) */
+/* ------------------------------- */
+.pastel-menu {
+    -fx-background-color: #709FBE; /* Solid pastel blue */
+    -fx-padding: 15;              /* Internal padding */
+    -fx-background-radius: 8;      /* Rounded corners */
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.3), 5, 0, 0, 2); /* Drop shadow */
+}
+
+/* ------------------------------- */
+/* Layout Container for Menu Items (HBox/VBox) */
+/* ------------------------------- */
+.pastel-menu .menu-box {
+    -fx-spacing: 10;             /* Space between buttons */
+    -fx-alignment: center;       /* Center alignment */
+    -fx-padding: 5;
+}
+
+/* ------------------------------- */
+/* Button Style for Menu Items   */
+/* ------------------------------- */
+.pastel-menu .menu-button {
+    -fx-background-color: transparent; /* Transparent to let the menu background show */
+    -fx-text-fill: #FFFFFF;             /* White text */
+    -fx-font-size: 14px;
+    -fx-padding: 8 12;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+}
+
+.pastel-menu .menu-button:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.2); /* Subtle highlight on hover */
+    -fx-cursor: hand;
+}

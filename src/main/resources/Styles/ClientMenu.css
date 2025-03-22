@@ -30,8 +30,9 @@
 
 /* Navigation Section */
 .navigation_container {
-    -fx-padding: 10 10 10 20;
+    -fx-padding: 10 10 20 20;
     -fx-spacing: 20;
+    -fx-alignment: center;
 }
 
 .navigation_container Button {

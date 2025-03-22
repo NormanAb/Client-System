@@ -10,6 +10,8 @@ public enum MenuOptions {
 
     REPORT_LIST,
 
+    SETTINGS,
+
     CREATE_CLIENT,
     INCOME,
     CREATE_INCOME,

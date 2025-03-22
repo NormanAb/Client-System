@@ -25,6 +25,8 @@ public class ViewFactory {
     private AnchorPane clientListView;
     private AnchorPane reportListView;
 
+    private AnchorPane settingsView;
+
     public ViewFactory(){
         this.adminSelectedMenuItem = new SimpleObjectProperty<>();
         logger.info("ViewFactory initialized.");
@@ -146,6 +148,23 @@ public class ViewFactory {
         return createIncome;
     }
 
+    public Pane getSettingsView() {
+        if(settingsView == null){
+            try {
+                logger.info("Loading Settings.fxml for settingsView.");
+                settingsView = new FXMLLoader(getClass().getResource("/Fxml/Settings.fxml")).load();
+                logger.info("settingsView loaded successfully.");
+            } catch (Exception e){
+                logger.severe("Error loading settingsView: " + e.getMessage());
+                e.printStackTrace();
+            }
+        }
+        return settingsView;
+    }
+
+
+
+
     public void showAdminWindow(){
         logger.info("Showing Admin Window.");
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Main.fxml"));
@@ -163,6 +182,9 @@ public class ViewFactory {
             logger.severe("Error creating scene: " + e.getMessage());
             e.printStackTrace();
         }
+        scene.getStylesheets().add(getClass().getResource("/Styles/Normano.css").toExternalForm());
+
+
         Stage stage = new Stage();
         try {
             Image icon = new Image(String.valueOf(getClass().getResource("/Images/icon.png")));

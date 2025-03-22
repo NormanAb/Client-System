@@ -19,7 +19,7 @@
         <Text layoutX="751.0" layoutY="345.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="section_title" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="340.0" />
         <AnchorPane layoutX="10.0" layoutY="103.0" prefHeight="633.0" prefWidth="829.0" styleClass="client_down">
             <children>
-                <TableView fx:id="clients_table" layoutX="16.0" layoutY="17.0" prefHeight="600.0" prefWidth="798.0">
+                <TableView fx:id="clients_table" layoutX="8.0" layoutY="17.0" prefHeight="600.0" prefWidth="829.0" stylesheets="@../Styles/Normano.css">
                     <columns>
                         <TableColumn fx:id="colId" prefWidth="58.0" text="ID" />
                         <TableColumn fx:id="colName" prefWidth="183.0" text="Name" />
@@ -38,13 +38,13 @@
                 </TableView>
             </children>
         </AnchorPane>
-        <AnchorPane layoutX="12.0" layoutY="14.0" prefHeight="70.0" prefWidth="829.0" styleClass="client_up">
+        <AnchorPane layoutX="12.0" layoutY="14.0" prefHeight="70.0" prefWidth="829.0" styleClass="client_up" stylesheets="@../Styles/Normano.css">
             <children>
-                <Text layoutX="28.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="user_name" text="Clients" AnchorPane.leftAnchor="28.0" AnchorPane.topAnchor="26.599998474121094" />
-                <Label layoutX="711.0" layoutY="30.0" styleClass="date_lbl" text="Šiandien 2024-12-28" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="30.0" />
-                <HBox alignment="CENTER" layoutX="154.0" prefHeight="76.0" prefWidth="548.0" spacing="10.0">
+                <Text layoutX="28.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="pastel-text" text="Clients" AnchorPane.leftAnchor="28.0" AnchorPane.topAnchor="26.599998474121094" />
+                <Label layoutX="711.0" layoutY="30.0" styleClass="pastel-label" stylesheets="@../Styles/Normano.css" text="Šiandien 2024-12-28" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="30.0" />
+                <HBox alignment="CENTER" layoutX="178.0" prefHeight="76.0" prefWidth="504.0" spacing="10.0">
                     <children>
-                        <Button fx:id="addClient_btn" mnemonicParsing="false" onAction="#onCreateClient" prefHeight="28.0" prefWidth="248.0" styleClass="date_lbl" text="Add Client">
+                        <Button fx:id="addClient_btn" mnemonicParsing="false" onAction="#onCreateClient" prefHeight="28.0" prefWidth="248.0" styleClass="pastel-button" stylesheets="@../Styles/Normano.css" text="Add Client">
                             <graphic>
                                 <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
@@ -58,8 +58,8 @@
                         </Button>
                     </children>
                 </HBox>
-                <Line endX="53.0" endY="12.0" layoutX="101.0" layoutY="57.0" startX="53.0" startY="-46.0" />
-                <Line endX="53.0" endY="12.0" layoutX="649.0" layoutY="57.0" startX="53.0" startY="-46.0" />
+            <Line endX="53.0" endY="12.0" layoutX="629.0" layoutY="57.0" startX="53.0" startY="-46.0" />
+            <Line endX="53.0" endY="12.0" layoutX="125.0" layoutY="54.0" startX="53.0" startY="-46.0" />
             </children>
         </AnchorPane>
     </children>

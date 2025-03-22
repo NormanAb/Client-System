@@ -20,6 +20,7 @@ public class RouteController implements Initializable {
                 case DASHBOARD -> admin_parent.setCenter(Model.getInstance().getViewFactory().getDashboardView());
                 case CLIENT_LIST -> admin_parent.setCenter(Model.getInstance().getViewFactory().getClientListView());
                 case REPORT_LIST -> admin_parent.setCenter(Model.getInstance().getViewFactory().getReportListView());
+                case SETTINGS -> admin_parent.setCenter(Model.getInstance().getViewFactory().getSettingsView());
                 default -> admin_parent.setCenter(Model.getInstance().getViewFactory().getClientsView());
             }
         });
