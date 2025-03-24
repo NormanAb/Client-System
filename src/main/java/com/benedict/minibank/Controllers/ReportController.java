@@ -1,26 +1,28 @@
 package com.benedict.minibank.Controllers;
 
-import com.benedict.minibank.Models.Client;
-import com.benedict.minibank.Models.Model;
 import com.benedict.minibank.Models.Report;
+import com.benedict.minibank.Models.Model;
 import com.benedict.minibank.Utilities.AlertUtility;
-import com.benedict.minibank.Utilities.DialogueUtility;
-import javafx.collections.ObservableList;
-import javafx.fxml.Initializable;
+import com.benedict.minibank.Utilities.PDFGenerator;
 import com.benedict.minibank.Views.MenuOptions;
+import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.FileChooser;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 import java.util.logging.Logger;
-import javafx.fxml.FXML;
-import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
 
 public class ReportController implements Initializable {
     private static final Logger logger = Logger.getLogger(ReportController.class.getName());
 
-    //@FXML
-    //public MenuItem delete_btn;
     @FXML
     private Button addReport_btn;
     @FXML
@@ -35,36 +37,26 @@ public class ReportController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         logger.info("Initializing ReportController");
-        initTableColumns(); // Initialize table columns
-        loadReportData();   // Load data into the table
-        Model.getInstance().getReports();
+        initTableColumns();
+        loadReportData();
         setRowFactoryForReportsTable();
+        setupReportTableContextMenu();
 
-    /*    delete_btn.setOnAction(event -> {
-            logger.info("Delete button clicked");
-            onDeleteReport();
-        });
-       */ addReport_btn.setOnAction(event -> {
-            logger.info("Add Report button clicked");
-            onCreateReport();
-        });
+        // onAction event handler must be annotated with @FXML (or set in code)
+        addReport_btn.setOnAction(event -> onCreateReport());
 
         Model.getInstance().getViewFactory().getAdminSelectedMenuItem().addListener((obs, oldVal, newVal) -> {
-            logger.info("Admin selected menu changed from " + oldVal + " to " + newVal);
             if (newVal == MenuOptions.REPORT_LIST) {
-                logger.info("REPORT_LIST menu selected; reloading report data");
-                loadReportData(); // Reload data when returning to this view
+                loadReportData();
             }
         });
     }
 
     private void initTableColumns() {
         logger.info("Setting up table columns");
-        // Map TableColumns to their corresponding properties
         colDate.setCellValueFactory(new PropertyValueFactory<>("date"));
         colName.setCellValueFactory(new PropertyValueFactory<>("name"));
         colID.setCellValueFactory(new PropertyValueFactory<>("id"));
-
         colDate.setCellFactory(column -> new TableCell<>() {
             @Override
             protected void updateItem(LocalDate date, boolean empty) {
@@ -75,11 +67,10 @@ public class ReportController implements Initializable {
     }
 
     private void setRowFactoryForReportsTable() {
-        logger.info("Configuring row factory for reports table");
         reports_table.setRowFactory(tv -> {
             TableRow<Report> row = new TableRow<>();
             row.setOnMouseClicked(event -> {
-                if (event.getClickCount() == 2 && (!row.isEmpty())) {
+                if (event.getClickCount() == 2 && !row.isEmpty()) {
                     Report selectedReport = row.getItem();
                     logger.info("Double-click detected on report: " + selectedReport.getName() +
                             " (ID: " + selectedReport.getId() + ")");
@@ -92,26 +83,67 @@ public class ReportController implements Initializable {
 
     private void loadReportData() {
         logger.info("Loading report data");
-        // Fetch report data from the Model and populate the table
         ObservableList<Report> reports = Model.getInstance().getReports();
         Model.getInstance().loadReports();
         reports_table.setItems(Model.getInstance().getReports());
         logger.info("Report data loaded; total reports: " + reports.size());
     }
 
-   /* private void onDeleteReport() {
-        logger.info("Delete report action triggered");
-        Add delete logic here and log success or failure as needed
-    }*/
-
     @FXML
     private void onCreateReport() {
-        logger.info("Create report action triggered");
-        // Add create report logic here and log success or failure as needed
+        // Create a new report (customize as needed)
+        Report report = new Report(LocalDate.now(), "Monthly Client Report");
+        Model.getInstance().createReport(report.getName(), report.getDate());
+
+        // Optionally, generate a PDF file and save it locally:
+        String filePath = PDFGenerator.saveReportPDFToFile(report, "pdfs/report_" + report.getId() + ".pdf");
+        if (filePath != null) {
+            AlertUtility.displayInformation("Report created. PDF saved to: " + filePath);
+        } else {
+            AlertUtility.displayError("Error generating PDF for the report.");
+        }
     }
 
     private void editReport(Report report) {
         logger.info("Editing report: " + report.getName() + " (ID: " + report.getId() + ")");
-        // Add editing logic here and log any necessary details
+        // Add editing logic if needed
+    }
+
+    private void setupReportTableContextMenu() {
+        reports_table.setRowFactory(tv -> {
+            TableRow<Report> row = new TableRow<>();
+            ContextMenu rowMenu = new ContextMenu();
+            MenuItem downloadItem = new MenuItem("Download");
+            downloadItem.setOnAction(event -> {
+                Report selectedReport = row.getItem();
+                if (selectedReport != null) {
+                    byte[] pdfData = PDFGenerator.generateReportPDF(selectedReport);
+                    if (pdfData != null) {
+                        FileChooser fileChooser = new FileChooser();
+                        fileChooser.setTitle("Save Report PDF");
+                        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("PDF Files", "*.pdf"));
+                        File file = fileChooser.showSaveDialog(reports_table.getScene().getWindow());
+                        if (file != null) {
+                            try (FileOutputStream fos = new FileOutputStream(file)) {
+                                fos.write(pdfData);
+                                AlertUtility.displayInformation("PDF downloaded to: " + file.getAbsolutePath());
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                                AlertUtility.displayError("Error saving PDF: " + e.getMessage());
+                            }
+                        }
+                    } else {
+                        AlertUtility.displayError("Error generating PDF data.");
+                    }
+                }
+            });
+            rowMenu.getItems().add(downloadItem);
+            row.contextMenuProperty().bind(
+                    javafx.beans.binding.Bindings.when(row.emptyProperty())
+                            .then((ContextMenu) null)
+                            .otherwise(rowMenu)
+            );
+            return row;
+        });
     }
 }

@@ -41,11 +41,7 @@ public class ReportDAO {
         }
     }
 
-    public Object findById(int id) {
-        logger.info("Finding report by id: " + id);
-        // Implement this if needed
-        return null;
-    }
+
 
     public void update(Report report) {
         logger.info("Updating report with id: " + report.getId());
@@ -114,5 +110,23 @@ public class ReportDAO {
         }
 
         return reports;
+    }
+
+    //PDF Things
+    public void updateReportPDF(int reportId, byte[] pdfData) {
+        String sql = "UPDATE Reports SET PdfBlob = ? WHERE id = ?";
+        try (PreparedStatement stmt = this.conn.prepareStatement(sql)) {
+            stmt.setBytes(1, pdfData);
+            stmt.setInt(2, reportId);
+            int rowsUpdated = stmt.executeUpdate();
+            if (rowsUpdated > 0) {
+                logger.info("Report PDF updated for report id: " + reportId);
+            } else {
+                logger.warning("No report found with id: " + reportId);
+            }
+        } catch (SQLException e) {
+            logger.severe("Error updating report PDF: " + e.getMessage());
+            e.printStackTrace();
+        }
     }
 }

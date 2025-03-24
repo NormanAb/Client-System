@@ -5,6 +5,8 @@ module com.benedict.minibank {
     requires java.sql;
     requires org.xerial.sqlitejdbc;
     requires java.desktop;
+    requires org.apache.pdfbox;
+    requires javafx.swing;
 
 
     opens com.benedict.minibank to javafx.fxml;
