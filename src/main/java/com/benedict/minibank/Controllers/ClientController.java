@@ -40,6 +40,9 @@ public class ClientController implements Initializable {
     @FXML
     private TableColumn<Client, String> colPhone;
 
+    @FXML
+    private TableColumn<Client, String> colStatus;
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -86,6 +89,7 @@ public class ClientController implements Initializable {
         colSurname.setCellValueFactory(new PropertyValueFactory<>("surname"));
         colEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
         colPhone.setCellValueFactory(new PropertyValueFactory<>("phone"));
+        colStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
     }
 
     private void setRowFactoryForClientsTable() {

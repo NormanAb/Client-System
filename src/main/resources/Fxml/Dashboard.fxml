@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
@@ -9,10 +13,10 @@
 <AnchorPane prefHeight="750.0" prefWidth="850.0" styleClass="dashboard" stylesheets="@../Styles/Dashboard.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.benedict.minibank.Controllers.DashboardController">
    <children>
       <Text layoutX="751.0" layoutY="345.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="section_title" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="340.0" />
-      <AnchorPane layoutX="10.0" layoutY="448.0" prefHeight="288.0" prefWidth="829.0" styleClass="client_down">
+      <AnchorPane layoutX="10.0" layoutY="510.0" prefHeight="226.0" prefWidth="829.0" styleClass="client_down">
          <children>
-            <Label layoutX="53.0" layoutY="20.0" prefHeight="17.0" prefWidth="563.0" text="Recent reports:" />
-            <Line endX="634.0" layoutX="159.0" layoutY="45.0" startX="-124.0" />
+            <Label layoutX="53.0" layoutY="51.0" prefHeight="17.0" prefWidth="563.0" text="Recent reports:" />
+            <Line endX="634.0" layoutX="159.0" layoutY="76.0" startX="-124.0" />
          </children>
       </AnchorPane>
       <AnchorPane layoutX="12.0" layoutY="14.0" prefHeight="70.0" prefWidth="829.0" styleClass="client_up">
@@ -22,34 +26,46 @@
       </AnchorPane>
       <HBox layoutX="10.0" layoutY="129.0" prefHeight="70.0" prefWidth="829.0" spacing="30.0">
          <children>
-            <AnchorPane prefHeight="70.0" prefWidth="252.0" styleClass="client_up">
+            <AnchorPane prefHeight="70.0" prefWidth="74.0" styleClass="client_up">
                <children>
-                  <Label prefHeight="70.0" prefWidth="253.0" text="Total clients:" />
+                  <Label prefHeight="70.0" prefWidth="71.0" text="Total clients:" />
                </children>
             </AnchorPane>
-            <AnchorPane prefHeight="70.0" prefWidth="253.0" styleClass="client_up">
+            <AnchorPane prefHeight="70.0" prefWidth="74.0" styleClass="client_up">
                <children>
-                  <Label layoutY="27.0" prefHeight="17.0" prefWidth="251.0" text="Current active clients:" />
+                  <Label fx:id="totalClients" prefHeight="70.0" prefWidth="71.0" />
                </children>
             </AnchorPane>
-            <AnchorPane prefHeight="70.0" prefWidth="253.0" styleClass="client_up">
+            <AnchorPane prefHeight="70.0" prefWidth="131.0" styleClass="client_up">
                <children>
-                  <Label layoutX="-1.0" layoutY="27.0" prefHeight="17.0" prefWidth="253.0" text="Label" />
+                  <Label layoutY="27.0" prefHeight="17.0" prefWidth="122.0" text="Current active clients:" />
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="currentClients" layoutX="114.0" layoutY="10.0" prefHeight="70.0" prefWidth="74.0" styleClass="client_up">
+               <children>
+                  <Label fx:id="activeClients" layoutX="2.0" prefHeight="70.0" prefWidth="71.0" />
                </children>
             </AnchorPane>
          </children>
       </HBox>
-      <AnchorPane layoutX="14.0" layoutY="221.0" prefHeight="200.0" prefWidth="330.0" styleClass="client_down">
+      <AnchorPane layoutX="14.0" layoutY="221.0" prefHeight="70.0" prefWidth="330.0" styleClass="client_down">
          <children>
-            <Label layoutX="53.0" layoutY="20.0" prefHeight="17.0" prefWidth="219.0" text="Newest clients:" />
             <Line endX="124.0" layoutX="159.0" layoutY="45.0" startX="-124.0" />
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="388.0" layoutY="221.0" prefHeight="200.0" prefWidth="445.0" styleClass="client_down">
+      <AnchorPane layoutX="388.0" layoutY="221.0" prefHeight="70.0" prefWidth="445.0" styleClass="client_down">
          <children>
-            <Label layoutX="53.0" layoutY="20.0" prefHeight="17.0" prefWidth="219.0" text="Successful client rate" />
             <Line endX="124.0" layoutX="159.0" layoutY="45.0" startX="-124.0" />
          </children>
       </AnchorPane>
+      <PieChart fx:id="clientsPieChart" layoutX="403.0" layoutY="287.0" prefHeight="253.0" prefWidth="287.0" title="Client Variety" />
+      <BarChart fx:id="newClientBarChart" layoutX="36.0" layoutY="282.0" prefHeight="263.0" prefWidth="287.0" title="New Clients This Week">
+        <xAxis>
+          <CategoryAxis side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis side="LEFT" />
+        </yAxis>
+      </BarChart>
    </children>
 </AnchorPane>

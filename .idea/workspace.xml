@@ -5,21 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e6391013-de95-448c-96cb-8c8358bb9659" name="Changes" comment="Update 3/22/2025">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/benedict/minibank/Controllers/SettingsController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Styles/Normano.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/benedict/minibank/Models/ClientStatus.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/library.db" beforeDir="false" afterPath="$PROJECT_DIR$/library.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/benedict/minibank/Controllers/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/benedict/minibank/Controllers/ClientController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benedict/minibank/Controllers/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/benedict/minibank/Controllers/MenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benedict/minibank/Controllers/RegisterController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benedict/minibank/Controllers/RouteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/benedict/minibank/Controllers/RouteController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benedict/minibank/Views/MenuOptions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/benedict/minibank/Views/MenuOptions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benedict/minibank/Views/ViewFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/benedict/minibank/Views/ViewFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benedict/minibank/Controllers/CreateClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/benedict/minibank/Controllers/CreateClientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benedict/minibank/Controllers/DashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/benedict/minibank/Controllers/DashboardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benedict/minibank/Models/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/benedict/minibank/Models/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benedict/minibank/Models/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/benedict/minibank/Models/Model.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benedict/minibank/Services/dao/ClientDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/benedict/minibank/Services/dao/ClientDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benedict/minibank/Utilities/DialogueUtility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/benedict/minibank/Utilities/DialogueUtility.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/ClientsList.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/ClientsList.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/Menu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Menu.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/Reports.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Reports.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/Settings.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Settings.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Styles/ClientMenu.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Styles/ClientMenu.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/CreateClient.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/CreateClient.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/Dashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Dashboard.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,8 +30,8 @@
       <list>
         <option value="Interface" />
         <option value="FxmlFile" />
-        <option value="Class" />
         <option value="HTML File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -57,35 +56,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Kirpykla.executor": "Run",
-    "Application.Start.executor": "Run",
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Shell Script.mvnw.executor": "Run",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Mokinys/Desktop/Intellij Laikinas/IA 2025_03_04",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.17",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "android.project.structure",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Kirpykla.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Start.executor&quot;: &quot;Run&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Shell Script.mvnw.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Mokinys/Desktop/Intellij Laikinas/IA 2025_03_04&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.17&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;android.project.structure&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "sqlite"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;sqlite&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Normanas\Desktop\CompSci IA\CS IA\benediktas-IA-library\src\main\resources\Fxml" />
@@ -177,7 +176,15 @@
       <option name="project" value="LOCAL" />
       <updated>1742649710625</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Update 3/22/2025">
+      <option name="closed" value="true" />
+      <created>1742671130572</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1742671130572</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

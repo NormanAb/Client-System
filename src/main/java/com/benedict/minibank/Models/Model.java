@@ -107,9 +107,21 @@ public class Model {
         clientDAO.delete(id);
     }
 
-    public void createClient(String name, String surname, String email, String phone) {
+    // Existing method remains for backwards compatibility
+    /*public void createClient(String name, String surname, String email, String phone) {
         logger.info("Creating client: " + name + " " + surname);
+        // Uses the default constructor which sets a default status (e.g., UNKNOWN or ACTIVE as per your implementation)
         Client client = new Client(name, surname, email, phone);
+        clientDAO.create(client);
+        loadClients();
+    }
+    */
+
+    // New overloaded method that accepts a status parameter
+    public void createClient(String name, String surname, String email, String phone, String status) {
+        logger.info("Creating client: " + name + " " + surname + " with status: " + status);
+        // This constructor sets the date to LocalDate.now() automatically.
+        Client client = new Client(name, surname, email, phone, status);
         clientDAO.create(client);
         loadClients();
     }
