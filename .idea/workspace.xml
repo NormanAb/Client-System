@@ -4,18 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="13d01d61-06e7-4708-99a3-22339bcb8d49" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Styles/Color Pallete codes" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Styles/testing.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="13d01d61-06e7-4708-99a3-22339bcb8d49" name="Changes" comment="Added menu and dashboard design">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library.db" beforeDir="false" afterPath="$PROJECT_DIR$/library.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benedict/minibank/Services/dao/ClientDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/benedict/minibank/Services/dao/ClientDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/ClientsList.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/ClientsList.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/Dashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Dashboard.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/Menu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Menu.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Images/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Images/logo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Styles/ClientMenu.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Styles/ClientMenu.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/Styles/Dashboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Styles/Dashboard.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -25,6 +15,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="SET_USER_NAME_GLOBALLY" value="false" />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -68,6 +59,18 @@
       <option name="presentableId" value="Default" />
       <updated>1742883583781</updated>
     </task>
+    <task id="LOCAL−00001" summary="Added menu and dashboard design">
+      <option name="closed" value="true" />
+      <created>1742892260526</created>
+      <option name="number" value="LOCAL−00001" />
+      <option name="presentableId" value="LOCAL−00001" />
+      <updated>1742892260526</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Added menu and dashboard design" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added menu and dashboard design" />
   </component>
 </project>
