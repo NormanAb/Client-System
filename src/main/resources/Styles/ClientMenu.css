@@ -1,19 +1,21 @@
 .main_menu_container {
-    -fx-background-color: #EEE; /* very light gray */
+    -fx-background-color: #0d1b2a; /* very light gray */
     -fx-alignment: center;
     -fx-padding: 0 10 0 10;
 }
 
 .left_container {
-    -fx-background-color: #FFF;
+    -fx-alignment-center;
+    -fx-background-color: #1b263b;
     -fx-background-radius: 10;
-    -fx-effect: dropshadow(two-pass-box, #AAA, 5, 0, 0, 4); /* medium light gray */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 5, 0, 0, 1.5);
 }
 
 /* Title/Logo Section */
 
 .title_container {
-    -fx-background-color: #FFF; /* white */
+    -fx-alignment: center;
+    -fx-background-color: #1b263b; /* white */
     -fx-background-radius: 20, 20, 0, 0;
     -fx-alignment: top_center;
     -fx-padding: 10;
@@ -28,29 +30,47 @@
     -fx-font-size: 2em;
 }
 
+.title_container ImageView {
+    -fx-background-color: transparent;
+}
+
 /* Navigation Section */
 .navigation_container {
     -fx-padding: 10 10 20 20;
     -fx-spacing: 20;
     -fx-alignment: center;
+    -fx-background-color: #1b263b;
 }
 
+Text, Label {
+    -fx-text-alignment: center;
+    -fx-alignment: center;
+}
+
+/* Navigation Section - Simple Gradient Style */
 .navigation_container Button {
-    -fx-pref-width: 150;
-    -fx-pref-height: 40;
-    -fx-background-color: #FFF; /* white */
-    -fx-text-fill: #132A13; /* dark green */
-    -fx-font-size: 1.1em;
-    -fx-alignment: center_left;
-    -fx-effect: dropshadow(three-pass-box, #DDD, 5, 0, 0, 6); /* light shade of gray */
+    -fx-pref-width: 125px;
+    -fx-pref-height: 40px;
+    -fx-min-width: 125px;
+    -fx-min-height: 40px;
+    -fx-background-color: linear-gradient(to bottom, #0dccea, #0d70ea);
+    -fx-background-radius: 4px;
+    -fx-text-fill: white;
+    -fx-font-family: "Montserrat", sans-serif;
+    -fx-font-size: 14px;
+    -fx-padding: 10px 15px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 5, 0, 0, 1.5);
+    -fx-cursor: hand;
+    -fx-alignment: center;
 }
 
 .navigation_container Button:hover {
-    -fx-cursor: hand;
+    -fx-background-color: linear-gradient(to bottom, #0db8ea, #0d60ca);
 }
 
-.navigation_container Button FontAwesomeIconView {
-    -fx-fill: #132A13;
+.navigation_container Button:pressed {
+    -fx-background-color: linear-gradient(to bottom, #0da8da, #0d50ba);
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 3, 0, 0, 1);
 }
 
 .alt_navigation_btn {
@@ -67,7 +87,7 @@
 }
 
 .report_container {
-    -fx-background-color: #EEFFEE;
+    -fx-background-color: #1b263b;
     -fx-background-radius: 10;
     -fx-alignment: center;
     -fx-spacing: 10;

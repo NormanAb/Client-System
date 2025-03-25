@@ -36,6 +36,7 @@ public class ClientDAO {
     }
 
 
+
     public void update(Client client) {
         String sql = "UPDATE Clients SET Name = ?, Surname = ?, Email = ?, Phone = ?, Status = ? WHERE id = ?";
         try (PreparedStatement stmt = this.conn.prepareStatement(sql)) {

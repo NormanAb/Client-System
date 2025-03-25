@@ -1,71 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.chart.BarChart?>
-<?import javafx.scene.chart.CategoryAxis?>
-<?import javafx.scene.chart.NumberAxis?>
-<?import javafx.scene.chart.PieChart?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.Line?>
-<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="750.0" prefWidth="850.0" styleClass="dashboard" stylesheets="@../Styles/Dashboard.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.benedict.minibank.Controllers.DashboardController">
-   <children>
-      <Text layoutX="751.0" layoutY="345.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="section_title" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="340.0" />
-      <AnchorPane layoutX="10.0" layoutY="510.0" prefHeight="226.0" prefWidth="829.0" styleClass="client_down">
-         <children>
-            <Label layoutX="53.0" layoutY="51.0" prefHeight="17.0" prefWidth="563.0" text="Recent reports:" />
-            <Line endX="634.0" layoutX="159.0" layoutY="76.0" startX="-124.0" />
-         </children>
-      </AnchorPane>
-      <AnchorPane layoutX="12.0" layoutY="14.0" prefHeight="70.0" prefWidth="829.0" styleClass="client_up">
-         <children>
-            <Label fx:id="login_date" layoutX="711.0" layoutY="30.0" styleClass="date_lbl" text="Šiandien 2024-12-28" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="30.0" />
-         </children>
-      </AnchorPane>
-      <HBox layoutX="10.0" layoutY="129.0" prefHeight="70.0" prefWidth="829.0" spacing="30.0">
-         <children>
-            <AnchorPane prefHeight="70.0" prefWidth="74.0" styleClass="client_up">
-               <children>
-                  <Label prefHeight="70.0" prefWidth="71.0" text="Total clients:" />
-               </children>
-            </AnchorPane>
-            <AnchorPane prefHeight="70.0" prefWidth="74.0" styleClass="client_up">
-               <children>
-                  <Label fx:id="totalClients" prefHeight="70.0" prefWidth="71.0" />
-               </children>
-            </AnchorPane>
-            <AnchorPane prefHeight="70.0" prefWidth="131.0" styleClass="client_up">
-               <children>
-                  <Label layoutY="27.0" prefHeight="17.0" prefWidth="122.0" text="Current active clients:" />
-               </children>
-            </AnchorPane>
-            <AnchorPane fx:id="currentClients" layoutX="114.0" layoutY="10.0" prefHeight="70.0" prefWidth="74.0" styleClass="client_up">
-               <children>
-                  <Label fx:id="activeClients" layoutX="2.0" prefHeight="70.0" prefWidth="71.0" />
-               </children>
-            </AnchorPane>
-         </children>
+<AnchorPane xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.benedict.minibank.Controllers.DashboardController"
+            stylesheets="@../Styles/Dashboard.css">
+
+   <VBox alignment="TOP_CENTER" spacing="20" AnchorPane.topAnchor="0"
+         AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0"
+         AnchorPane.rightAnchor="0">
+
+      <!-- Header -->
+      <HBox alignment="CENTER_RIGHT" styleClass="dashboard-header">
+         <Label fx:id="login_date" styleClass="date_lbl" text="Šiandien 2024-12-28"/>
       </HBox>
-      <AnchorPane layoutX="14.0" layoutY="221.0" prefHeight="70.0" prefWidth="330.0" styleClass="client_down">
-         <children>
-            <Line endX="124.0" layoutX="159.0" layoutY="45.0" startX="-124.0" />
-         </children>
-      </AnchorPane>
-      <AnchorPane layoutX="388.0" layoutY="221.0" prefHeight="70.0" prefWidth="445.0" styleClass="client_down">
-         <children>
-            <Line endX="124.0" layoutX="159.0" layoutY="45.0" startX="-124.0" />
-         </children>
-      </AnchorPane>
-      <PieChart fx:id="clientsPieChart" layoutX="403.0" layoutY="287.0" prefHeight="253.0" prefWidth="287.0" title="Client Variety" />
-      <BarChart fx:id="newClientBarChart" layoutX="36.0" layoutY="282.0" prefHeight="263.0" prefWidth="287.0" title="New Clients This Week">
-        <xAxis>
-          <CategoryAxis side="BOTTOM" />
-        </xAxis>
-        <yAxis>
-          <NumberAxis side="LEFT" />
-        </yAxis>
-      </BarChart>
-   </children>
+
+      <!-- Stats Row -->
+      <HBox alignment="CENTER" spacing="30">
+         <VBox styleClass="stat-card" alignment="CENTER" spacing="5">
+            <Label text="Total Clients" styleClass="stat-label"/>
+            <Label fx:id="totalClients" styleClass="stat-value"/>
+         </VBox>
+
+         <VBox styleClass="stat-card" alignment="CENTER" spacing="5">
+            <Label text="Active Clients" styleClass="stat-label"/>
+            <Label fx:id="activeClients" styleClass="stat-value"/>
+         </VBox>
+      </HBox>
+
+      <!-- Charts Row - Maintain original chart structure -->
+      <HBox alignment="CENTER" spacing="40" styleClass="charts-container">
+         <VBox>
+            <PieChart fx:id="clientsPieChart" title="Client Variety"
+                      styleClass="dashboard-chart"
+                      minWidth="400" minHeight="300"
+                      maxWidth="400" maxHeight="300"/>
+         </VBox>
+
+         <VBox>
+            <BarChart fx:id="newClientBarChart" title="New Clients This Week"
+                      styleClass="dashboard-chart"
+                      minWidth="400" minHeight="300"
+                      maxWidth="400" maxHeight="300">
+               <xAxis>
+                  <CategoryAxis side="BOTTOM" />
+               </xAxis>
+               <yAxis>
+                  <NumberAxis side="LEFT" />
+               </yAxis>
+            </BarChart>
+         </VBox>
+      </HBox>
+
+      <!-- Reports Section -->
+      <VBox alignment="CENTER" spacing="10" styleClass="reports-section">
+         <Label text="Recent Reports" styleClass="section_title"/>
+         <Line endX="600" styleClass="divider-line"/>
+      </VBox>
+   </VBox>
 </AnchorPane>
