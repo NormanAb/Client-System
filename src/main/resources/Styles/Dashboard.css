@@ -42,7 +42,7 @@
 }
 
 .dashboard-chart {
-    -fx-legend-visible: true:
+    -fx-legend-visible: true;
     -fx-background-color: white;
     -fx-background-radius: 10;
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 5);
@@ -71,9 +71,112 @@
     -fx-stroke-width: 1;
 }
 
+/* Table Styles */
+.dashboard-table {
+    -fx-background-color: white;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 5);
+    -fx-padding: 10;
+}
+
+.dashboard-table .column-header-background {
+    -fx-background-color: #1b263b;
+    -fx-background-radius: 10 10 0 0;
+    -fx-padding: 0 0 5 0;
+}
+
+.dashboard-table .column-header {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-font-family: "Calibri Light";
+    -fx-font-size: 1.2em;
+}
+
+.dashboard-table .table-cell {
+    -fx-text-fill: #333333;
+    -fx-padding: 8 10;
+    -fx-alignment: CENTER;
+    -fx-border-color: transparent;
+}
+
+.dashboard-table .table-row-cell:odd {
+    -fx-background-color: #f5f5f5;
+}
+
+.dashboard-table .table-row-cell:selected {
+    -fx-background-color: #e0e1dd;
+}
+
+/* Action Button */
+.action-button {
+    -fx-background-color: linear-gradient(to bottom, #0dccea, #0d70ea);
+    -fx-background-radius: 4px;
+    -fx-text-fill: white;
+    -fx-font-family: "Montserrat", sans-serif;
+    -fx-font-size: 14px;
+    -fx-padding: 10px 20px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 5, 0, 0, 1.5);
+}
+
+.action-button:hover {
+    -fx-background-color: linear-gradient(to bottom, #0db8ea, #0d60ca);
+}
+
+/* Context Menu */
+.context-menu {
+    -fx-background-color: white;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 2);
+}
+
+.context-menu .menu-item {
+    -fx-font-family: "Calibri Light";
+    -fx-font-size: 1.1em;
+    -fx-padding: 5 15;
+}
+
+.context-menu .menu-item:hover {
+    -fx-background-color: #e0e1dd;
+    -fx-cursor: hand;
+}
+
 /* Consistent with menu styling */
 .section_title {
     -fx-font-size: 1.2em;
     -fx-font-family: "Calibri Light";
     -fx-text-fill: #1b263b;
+}
+
+/* Remove empty column placeholder */
+.dashboard-table .column-overlay {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+/* Remove column resize line */
+.dashboard-table .filler {
+    -fx-background-color: transparent;
+}
+
+.dashboard-table .column-header,
+.dashboard-table .column-header .label {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;  /* This makes the column header text white */
+    -fx-font-family: "Calibri Light";
+    -fx-font-size: 1.2em;
+    -fx-alignment: CENTER;
+}
+
+.dashboard-table .table-cell {
+    -fx-text-fill: #333333; /* This keeps the cell content text black */
+    -fx-padding: 8 10;
+    -fx-alignment: CENTER;
+    -fx-border-color: transparent;
+}
+
+.dashboard-table .table-row-cell:odd {
+    -fx-background-color: #f5f5f5;
+}
+
+.dashboard-table .table-row-cell:selected {
+    -fx-background-color: #e0e1dd;
 }
