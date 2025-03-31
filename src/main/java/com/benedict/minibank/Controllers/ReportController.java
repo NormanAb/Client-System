@@ -12,6 +12,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.FileChooser;
 
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -39,10 +40,9 @@ public class ReportController implements Initializable {
         logger.info("Initializing ReportController");
         initTableColumns();
         loadReportData();
-        setRowFactoryForReportsTable();
         setupReportTableContextMenu();
 
-        // onAction event handler must be annotated with @FXML (or set in code)
+        // Prompt for custom report name on creation
         addReport_btn.setOnAction(event -> onCreateReport());
 
         Model.getInstance().getViewFactory().getAdminSelectedMenuItem().addListener((obs, oldVal, newVal) -> {
@@ -66,21 +66,6 @@ public class ReportController implements Initializable {
         });
     }
 
-    private void setRowFactoryForReportsTable() {
-        reports_table.setRowFactory(tv -> {
-            TableRow<Report> row = new TableRow<>();
-            row.setOnMouseClicked(event -> {
-                if (event.getClickCount() == 2 && !row.isEmpty()) {
-                    Report selectedReport = row.getItem();
-                    logger.info("Double-click detected on report: " + selectedReport.getName() +
-                            " (ID: " + selectedReport.getId() + ")");
-                    editReport(selectedReport);
-                }
-            });
-            return row;
-        });
-    }
-
     private void loadReportData() {
         logger.info("Loading report data");
         ObservableList<Report> reports = Model.getInstance().getReports();
@@ -91,33 +76,46 @@ public class ReportController implements Initializable {
 
     @FXML
     private void onCreateReport() {
-        // Create a new report (customize as needed)
-        Report report = new Report(LocalDate.now(), "Monthly Client Report");
+        // Prompt the user for a custom report name
+        TextInputDialog dialog = new TextInputDialog("Monthly Client Report");
+        dialog.setTitle("Create Report");
+        dialog.setHeaderText("Enter Report Name:");
+        dialog.setContentText("Report Name:");
+        String reportName = dialog.showAndWait().orElse("Monthly Client Report");
+
+        Report report = new Report(LocalDate.now(), reportName);
         Model.getInstance().createReport(report.getName(), report.getDate());
 
-        // Optionally, generate a PDF file and save it locally:
-        String filePath = PDFGenerator.saveReportPDFToFile(report, "pdfs/report_" + report.getId() + ".pdf");
+        // Obtain snapshots of your graphs.
+        BufferedImage barChartImage = Model.getInstance().getBarChartSnapshot();
+        BufferedImage pieChartImage = Model.getInstance().getPieChartSnapshot();
+
+        // Generate and save the PDF with graphs and text statistics.
+        String filePath = PDFGenerator.saveReportPDFToFile(report, barChartImage, pieChartImage, "pdfs/report_" + report.getId() + ".pdf");
         if (filePath != null) {
             AlertUtility.displayInformation("Report created. PDF saved to: " + filePath);
         } else {
             AlertUtility.displayError("Error generating PDF for the report.");
         }
+
+        // Refresh the reports table immediately.
+        loadReportData();
     }
 
-    private void editReport(Report report) {
-        logger.info("Editing report: " + report.getName() + " (ID: " + report.getId() + ")");
-        // Add editing logic if needed
-    }
 
     private void setupReportTableContextMenu() {
         reports_table.setRowFactory(tv -> {
             TableRow<Report> row = new TableRow<>();
             ContextMenu rowMenu = new ContextMenu();
+
+            // Download menu item
             MenuItem downloadItem = new MenuItem("Download");
             downloadItem.setOnAction(event -> {
                 Report selectedReport = row.getItem();
                 if (selectedReport != null) {
-                    byte[] pdfData = PDFGenerator.generateReportPDF(selectedReport);
+                    BufferedImage barChartImage = Model.getInstance().getBarChartSnapshot();
+                    BufferedImage pieChartImage = Model.getInstance().getPieChartSnapshot();
+                    byte[] pdfData = PDFGenerator.generateReportPDF(selectedReport, barChartImage, pieChartImage);
                     if (pdfData != null) {
                         FileChooser fileChooser = new FileChooser();
                         fileChooser.setTitle("Save Report PDF");
@@ -137,7 +135,22 @@ public class ReportController implements Initializable {
                     }
                 }
             });
-            rowMenu.getItems().add(downloadItem);
+
+            // Delete menu item
+            MenuItem deleteItem = new MenuItem("Delete");
+            deleteItem.setOnAction(event -> {
+                Report selectedReport = row.getItem();
+                if (selectedReport != null) {
+                    boolean confirmed = AlertUtility.displayConfirmation("Are you sure you want to delete this report?");
+                    if (confirmed) {
+                        Model.getInstance().reportDAO.delete(selectedReport.getId());
+                        loadReportData();
+                        AlertUtility.displayInformation("Report deleted successfully.");
+                    }
+                }
+            });
+
+            rowMenu.getItems().addAll(downloadItem, deleteItem);
             row.contextMenuProperty().bind(
                     javafx.beans.binding.Bindings.when(row.emptyProperty())
                             .then((ContextMenu) null)

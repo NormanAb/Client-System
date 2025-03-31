@@ -5,10 +5,7 @@ import com.benedict.minibank.Models.Model;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.time.LocalDate;
 import java.util.logging.Logger;
 
@@ -26,11 +23,17 @@ public class ReportDAO {
         String sql = "INSERT INTO Reports (Date, Name) VALUES (?, ?)";
         int userId = Model.getInstance().getLoggedUserId();
         logger.info("Logged user id: " + userId);
-        try (PreparedStatement stmt = this.conn.prepareStatement(sql)) {
+        try (PreparedStatement stmt = this.conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
             stmt.setString(1, report.getDate().toString());
             stmt.setString(2, report.getName());
             int rowsAffected = stmt.executeUpdate();
             if (rowsAffected > 0) {
+                try (ResultSet generatedKeys = stmt.getGeneratedKeys()) {
+                    if (generatedKeys.next()) {
+                        int generatedId = generatedKeys.getInt(1);
+                        report.setId(generatedId);
+                    }
+                }
                 logger.info("Report created successfully: " + report.getName());
             } else {
                 logger.warning("No rows affected when creating report: " + report.getName());

@@ -27,4 +27,8 @@ public class Report {
     public SimpleIntegerProperty idProperty() { return id; }
     public SimpleStringProperty nameProperty() { return name; }
     public SimpleObjectProperty<LocalDate> dateProperty() { return date; }
+
+    public void setId(int id) {
+        this.id.set(id);
+    }
 }

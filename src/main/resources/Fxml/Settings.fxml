@@ -5,37 +5,52 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="750.0" prefWidth="850.0" styleClass="dashboard" stylesheets="@../Styles/Dashboard.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.benedict.minibank.Controllers.SettingsController">
-    <children>
-        <Text layoutX="751.0" layoutY="345.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="section_title" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="340.0" />
-        <AnchorPane layoutX="10.0" layoutY="103.0" prefHeight="633.0" prefWidth="829.0" styleClass="client_down" stylesheets="@../Styles/Dashboard.css">
-         <children>
-            <HBox layoutX="229.0" layoutY="213.0" prefHeight="31.0" prefWidth="371.0" spacing="100.0">
-               <children>
-                  <Button fx:id="createBackup_btn" lineSpacing="50.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="135.0" styleClass="pastel-button" stylesheets="@../Styles/Normano.css" text="Create Backup" />
-                  <Button fx:id="loadBackup_btn" layoutX="10.0" layoutY="10.0" lineSpacing="50.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="135.0" styleClass="pastel-button" stylesheets="@../Styles/Normano.css" text="Load Backup" />
-               </children>
+<AnchorPane prefHeight="750.0" prefWidth="850.0" styleClass="dashboard" stylesheets="@../Styles/Dashboard.css"
+            xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.benedict.minibank.Controllers.SettingsController">
+
+    <!-- Header Section -->
+    <AnchorPane layoutX="10.0" layoutY="14.0" prefHeight="70.0" prefWidth="830.0" styleClass="dashboard-header">
+        <children>
+            <HBox alignment="CENTER_LEFT" spacing="10.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
+                <children>
+                    <Label text="Settings" styleClass="dashboard-header-text">
+                        <font>
+                            <Font size="24.0"/>
+                        </font>
+                    </Label>
+                </children>
             </HBox>
-            <Label layoutX="339.0" layoutY="46.0" prefHeight="47.0" prefWidth="150.0" styleClass="pastel-text" stylesheets="@../Styles/Normano.css" text="Choose background">
-               <font>
-                  <Font size="15.0" />
-               </font>
+            <Label layoutX="700.0" layoutY="20.0" text="Today: 2025-03-22" styleClass="stat-label"
+                   AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="20.0"/>
+        </children>
+    </AnchorPane>
+
+    <!-- Main Content Area -->
+    <AnchorPane layoutX="10.0" layoutY="90.0" prefHeight="640.0" prefWidth="830.0">
+        <children>
+            <!-- Backup Buttons -->
+            <HBox layoutX="20.0" layoutY="20.0" spacing="100.0" prefHeight="31.0" prefWidth="371.0">
+                <children>
+                    <Button fx:id="createBackup_btn" mnemonicParsing="false" prefHeight="29.0" prefWidth="135.0"
+                            styleClass="action-button" stylesheets="@../Styles/Normano.css" text="Create Backup"/>
+                    <Button fx:id="loadBackup_btn" mnemonicParsing="false" prefHeight="29.0" prefWidth="135.0"
+                            styleClass="action-button" stylesheets="@../Styles/Normano.css" text="Load Backup"/>
+                </children>
+            </HBox>
+
+            <!-- Background Color Selection -->
+            <Label layoutX="20.0" layoutY="70.0" prefHeight="47.0" prefWidth="150.0"
+                   styleClass="pastel-text" stylesheets="@../Styles/Normano.css" text="Choose background">
+                <font>
+                    <Font size="15.0"/>
+                </font>
             </Label>
-            <ComboBox fx:id="colorPicker_cbox" layoutX="341.0" layoutY="89.0" prefHeight="17.0" prefWidth="150.0" promptText="Select color..." stylesheets="@../Styles/Normano.css" />
-         </children>
-        </AnchorPane>
-        <AnchorPane layoutX="12.0" layoutY="14.0" prefHeight="70.0" prefWidth="829.0" styleClass="client_up">
-            <children>
-                <Text layoutX="28.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="user_name" text="Settings" AnchorPane.leftAnchor="28.0" AnchorPane.topAnchor="26.599998474121094" />
-                <Label layoutX="711.0" layoutY="30.0" styleClass="date_lbl" text="Šiandien 2024-12-28" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="30.0" />
-                <HBox alignment="CENTER" layoutX="154.0" prefHeight="76.0" prefWidth="548.0" spacing="10.0" />
-                <Line endX="53.0" endY="12.0" layoutX="101.0" layoutY="57.0" startX="53.0" startY="-46.0" />
-                <Line endX="53.0" endY="12.0" layoutX="649.0" layoutY="57.0" startX="53.0" startY="-46.0" />
-            </children>
-        </AnchorPane>
-    </children>
+            <ComboBox fx:id="colorPicker_cbox" layoutX="20.0" layoutY="120.0" prefHeight="25.0" prefWidth="150.0"
+                      promptText="Select color..." stylesheets="@../Styles/Normano.css"/>
+        </children>
+    </AnchorPane>
 </AnchorPane>

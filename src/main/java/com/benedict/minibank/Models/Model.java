@@ -6,6 +6,13 @@ import com.benedict.minibank.Services.dao.UserDAO;
 import com.benedict.minibank.Views.ViewFactory;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.embed.swing.SwingFXUtils;
+import javafx.scene.SnapshotParameters;
+import javafx.scene.image.WritableImage;
+
+import java.awt.Color;
+import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
 
 import java.time.LocalDate;
 import java.util.logging.Logger;
@@ -165,5 +172,14 @@ public class Model {
         reportDAO.create(report);
         loadReports();
         logger.info("Report created and reports list refreshed.");
+    }
+
+
+    public BufferedImage getBarChartSnapshot() {
+        return viewFactory.getDashboardController().captureBarChartSnapshot();
+    }
+
+    public BufferedImage getPieChartSnapshot() {
+        return viewFactory.getDashboardController().capturePieChartSnapshot();
     }
 }

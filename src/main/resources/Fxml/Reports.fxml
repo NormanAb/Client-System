@@ -4,48 +4,50 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="750.0" prefWidth="850.0" stylesheets="" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.benedict.minibank.Controllers.ReportController">
-    <children>
-        <Text layoutX="751.0" layoutY="345.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="section_title" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="340.0" />
-        <AnchorPane layoutX="10.0" layoutY="103.0" prefHeight="633.0" prefWidth="829.0" stylesheets="@../Styles/Normano.css">
-            <children>
-                <TableView fx:id="reports_table" layoutX="169.0" layoutY="37.0" prefHeight="405.0" prefWidth="492.0" stylesheets="@../Styles/Normano.css">
-                    <columns>
-                        <TableColumn fx:id="colDate" prefWidth="118.0" text="Date" />
-                        <TableColumn fx:id="colName" prefWidth="262.0" text="Name" />
-                  <TableColumn fx:id="colID" prefWidth="92.0" text="ID" />
-                    </columns>
-                </TableView>
-                  <Button fx:id="addReport_btn" layoutX="319.0" layoutY="461.0" mnemonicParsing="false" onAction="#onCreateReport" prefHeight="40.0" prefWidth="191.0" styleClass="pastel-button" stylesheets="@../Styles/Normano.css" text="Create new...">
-                      <graphic>
-                          <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                              <image>
-                                  <Image url="@../Images/addReport.png" />
-                              </image>
-                          </ImageView>
-                      </graphic>
-                      <font>
-                          <Font name="Arial" size="12.0" />
-                      </font>
-                  </Button>
-            </children>
-        </AnchorPane>
-        <AnchorPane layoutX="12.0" layoutY="14.0" prefHeight="70.0" prefWidth="829.0" styleClass="pastel-menu" stylesheets="@../Styles/Normano.css">
-            <children>
-                <Text layoutX="28.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="pastel-text" text="Reports" AnchorPane.leftAnchor="28.0" AnchorPane.topAnchor="26.599998474121094" />
-                <Label layoutX="711.0" layoutY="30.0" styleClass="date_lbl" text="Šiandien 2024-12-28" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="30.0" />
-                <HBox alignment="CENTER" layoutX="154.0" prefHeight="76.0" prefWidth="548.0" spacing="10.0" styleClass="pastel-menu" stylesheets="@../Styles/Normano.css" visible="false" />
-                <Line endX="53.0" endY="12.0" layoutX="101.0" layoutY="57.0" startX="53.0" startY="-46.0" />
-                <Line endX="53.0" endY="12.0" layoutX="649.0" layoutY="57.0" startX="53.0" startY="-46.0" />
-            </children>
-        </AnchorPane>
-    </children>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.benedict.minibank.Controllers.ReportController"
+            prefHeight="750.0" prefWidth="850.0"
+            styleClass="dashboard"
+            stylesheets="@../Styles/Dashboard.css">
+
+    <!-- Header Section using the unified header style -->
+    <AnchorPane layoutX="10.0" layoutY="14.0" prefHeight="70.0" prefWidth="830.0" styleClass="dashboard-header">
+        <children>
+            <HBox alignment="CENTER_LEFT" spacing="10.0"
+                  AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
+                <children>
+                    <Label text="Reports" styleClass="dashboard-header-text">
+                        <font>
+                            <Font size="24.0"/>
+                        </font>
+                    </Label>
+                </children>
+            </HBox>
+            <Label layoutX="700.0" layoutY="20.0" text="Today: 2025-03-22"
+                   styleClass="stat-label"
+                   AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="20.0"/>
+        </children>
+    </AnchorPane>
+
+    <!-- Main Content Area -->
+    <AnchorPane layoutX="10.0" layoutY="90.0" prefHeight="640.0" prefWidth="830.0">
+        <children>
+            <TableView fx:id="reports_table" layoutX="20.0" layoutY="20.0" prefHeight="500.0" prefWidth="790.0"
+                       styleClass="dashboard-table">
+                <columns>
+                    <TableColumn fx:id="colID" text="ID" prefWidth="100.0"/>
+                    <TableColumn fx:id="colName" text="Name" prefWidth="400.0"/>
+                    <TableColumn fx:id="colDate" text="Date" prefWidth="290.0"/>
+                </columns>
+            </TableView>
+            <Button fx:id="addReport_btn" layoutX="20.0" layoutY="540.0" prefHeight="40.0" prefWidth="200.0"
+                    text="Create Report" styleClass="action-button"/>
+        </children>
+    </AnchorPane>
 </AnchorPane>

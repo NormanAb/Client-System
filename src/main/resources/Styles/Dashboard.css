@@ -181,4 +181,41 @@
     -fx-background-color: #e0e1dd;
 }
 
+/* Unified header style for all tabs */
+.unified-header {
+    -fx-background-color: #1b263b;  /* Dark blue-gray */
+    -fx-background-radius: 10;
+    -fx-padding: 15;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 2);
+}
+
+/* Header text style */
+.unified-header-text {
+    -fx-text-fill: #e0e1dd;         /* Light text */
+    -fx-font-size: 24px;
+    -fx-font-family: "Calibri Light";
+    -fx-font-weight: bold;
+}
+
+/* Additional styling for login/register forms */
+.title-label {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1b263b;
+    -fx-padding: 0 0 10px 0;
+}
+
+.input-field {
+    -fx-font-size: 14px;
+    -fx-padding: 8px;
+    -fx-background-radius: 4px;
+    -fx-border-color: transparent;
+    -fx-background-color: #ffffff;
+}
+
+.error_lbl {
+    -fx-text-fill: red;
+    -fx-font-size: 12px;
+}
+
 //

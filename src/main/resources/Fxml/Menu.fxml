@@ -52,7 +52,7 @@
                            </image>
                         </ImageView>
                      </graphic></Button>
-                     <Button fx:id="logout_btn" mnemonicParsing="false" prefHeight="40.0" prefWidth="119.0" styleClass="alt_menu_btn" text="Atsijungti">
+                     <Button fx:id="logout_btn" mnemonicParsing="false" prefHeight="40.0" prefWidth="119.0" styleClass="alt_menu_btn" text="Log out">
                      <graphic>
                         <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>

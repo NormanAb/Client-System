@@ -1,5 +1,6 @@
 package com.benedict.minibank.Views;
 
+import com.benedict.minibank.Controllers.DashboardController;
 import com.benedict.minibank.Controllers.RouteController;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
@@ -26,6 +27,30 @@ public class ViewFactory {
     private AnchorPane reportListView;
 
     private AnchorPane settingsView;
+
+    private DashboardController dashboardController;
+
+    public Pane getDashboardView() {
+        if(dashboardView == null){
+            try {
+                logger.info("Loading Dashboard.fxml for dashboardView.");
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Dashboard.fxml"));
+                dashboardView = loader.load();
+                dashboardController = loader.getController();
+                logger.info("dashboardView loaded successfully.");
+            } catch (Exception e){
+                logger.severe("Error loading dashboardView: " + e.getMessage());
+                e.printStackTrace();
+            }
+        }
+        return dashboardView;
+    }
+
+    public DashboardController getDashboardController() {
+        // Ensure dashboard is loaded
+        getDashboardView();
+        return dashboardController;
+    }
 
     public ViewFactory(){
         this.adminSelectedMenuItem = new SimpleObjectProperty<>();
@@ -106,19 +131,6 @@ public class ViewFactory {
         return reportListView;
     }
 
-    public Pane getDashboardView() {
-        if(dashboardView == null){
-            try {
-                logger.info("Loading Dashboard.fxml for dashboardView.");
-                dashboardView = new FXMLLoader(getClass().getResource("/Fxml/Dashboard.fxml")).load();
-                logger.info("dashboardView loaded successfully.");
-            } catch (Exception e){
-                logger.severe("Error loading dashboardView: " + e.getMessage());
-                e.printStackTrace();
-            }
-        }
-        return dashboardView;
-    }
 
     public AnchorPane getIncomeView() {
         if(incomeView == null){

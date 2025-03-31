@@ -1,53 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.text.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@../Styles/login.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.benedict.minibank.Controllers.RegisterController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0"
+            stylesheets="@../Styles/Dashboard.css"
+            styleClass="dashboard"
+            xmlns="http://javafx.com/javafx/8"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.benedict.minibank.Controllers.RegisterController">
    <children>
-      <VBox prefHeight="400.0" prefWidth="200.0" styleClass="login_logo_container" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox alignment="CENTER" spacing="15"
+            AnchorPane.leftAnchor="100.0"
+            AnchorPane.rightAnchor="100.0"
+            AnchorPane.topAnchor="75.0"
+            AnchorPane.bottomAnchor="75.0"
+            styleClass="login_form_container">
+         <padding>
+            <Insets top="20" right="20" bottom="20" left="20"/>
+         </padding>
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Benedikto " />
-            <Text layoutX="52.0" layoutY="220.0" strokeType="OUTSIDE" strokeWidth="0.0" text="knygynas" />
-         </children>
-      </VBox>
-      <VBox layoutX="224.0" layoutY="50.0" prefHeight="352.0" prefWidth="350.0" styleClass="login_form_container" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
-         <children>
-            <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="18.0" prefWidth="355.0" styleClass="title-label" text="Registracija" />
-            <Label text="Vartotojo vardas:">
-               <VBox.margin>
-                  <Insets top="10.0" />
-               </VBox.margin>
-            </Label>
-            <TextField fx:id="user_name_fld" styleClass="input-field" />
-            <Label fx:id="password_lbl" text="Slaptažodis:">
-               <VBox.margin>
-                  <Insets top="10.0" />
-               </VBox.margin>
-            </Label>
-            <PasswordField fx:id="password_fld" styleClass="input-field" />
-            <Label fx:id="password_lbl1" layoutX="10.0" layoutY="106.0" text="Pakartokite slaptažodį:">
-               <VBox.margin>
-                  <Insets top="10.0" />
-               </VBox.margin>
-            </Label>
-            <PasswordField fx:id="repeat_password_fld" layoutX="10.0" layoutY="123.0" styleClass="input-field" />
-            <Label fx:id="error_lbl" styleClass="error_lbl" text="" />
-            <Button fx:id="register_btn" mnemonicParsing="false" text="Registruotis">
-               <VBox.margin>
-                  <Insets top="20.0" />
-               </VBox.margin>
-            </Button>
-            <Hyperlink fx:id="login_link" text="Jeigu turite paskyrą prisijunkite">
-               <VBox.margin>
-                  <Insets top="30.0" />
-               </VBox.margin>
-            </Hyperlink>
+            <Label text="Register" styleClass="title-label"/>
+            <Label text="Username:" styleClass="form-label"/>
+            <TextField fx:id="user_name_fld"
+                       promptText="Enter your username"
+                       styleClass="input-field"/>
+            <Label text="Password:" styleClass="form-label"/>
+            <PasswordField fx:id="password_fld"
+                           promptText="Enter your password"
+                           styleClass="input-field"/>
+            <Label text="Confirm Password:" styleClass="form-label"/>
+            <PasswordField fx:id="repeat_password_fld"
+                           promptText="Re-enter your password"
+                           styleClass="input-field"/>
+            <Button fx:id="register_btn" text="Register"
+                    styleClass="action-button"/>
+            <Label fx:id="error_lbl" text="" styleClass="error_lbl"/>
+            <Hyperlink fx:id="login_link"
+                       text="Already have an account? Sign In"
+                       styleClass="form-link"/>
          </children>
       </VBox>
    </children>

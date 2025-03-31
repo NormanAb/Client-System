@@ -126,4 +126,10 @@ public class DashboardController implements Initializable {
         BufferedImage bufferedImage = SwingFXUtils.fromFXImage(snapshot, null);
         return bufferedImage;
     }
+
+    public BufferedImage capturePieChartSnapshot() {
+        WritableImage snapshot = clientsPieChart.snapshot(new SnapshotParameters(), null);
+        BufferedImage bufferedImage = SwingFXUtils.fromFXImage(snapshot, null);
+        return bufferedImage;
+    }
 }
