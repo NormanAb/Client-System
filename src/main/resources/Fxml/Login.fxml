@@ -14,7 +14,7 @@
             styleClass="dashboard"
             xmlns="http://javafx.com/javafx/8"
             xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.benedict.minibank.Controllers.LoginController">
+            fx:controller="com.benedict.ClientManagement.Controllers.LoginController">
    <children>
       <VBox alignment="CENTER" spacing="15"
             AnchorPane.leftAnchor="100.0"

@@ -9,11 +9,11 @@ module com.benedict.minibank {
     requires javafx.swing;
 
 
-    opens com.benedict.minibank to javafx.fxml;
-    opens com.benedict.minibank.Controllers to javafx.fxml;
-    exports com.benedict.minibank;
-    exports com.benedict.minibank.Controllers;
-    exports com.benedict.minibank.Models;
-    exports com.benedict.minibank.Views;
-    exports com.benedict.minibank.Services.dao;
+    opens com.benedict.ClientManagement to javafx.fxml;
+    opens com.benedict.ClientManagement.Controllers to javafx.fxml;
+    exports com.benedict.ClientManagement;
+    exports com.benedict.ClientManagement.Controllers;
+    exports com.benedict.ClientManagement.Models;
+    exports com.benedict.ClientManagement.Views;
+    exports com.benedict.ClientManagement.Services.dao;
 }

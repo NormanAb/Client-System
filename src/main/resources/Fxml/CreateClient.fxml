@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="700.0" prefWidth="850.0" styleClass="create_client_container" stylesheets="@../Styles/CreateClient.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.benedict.minibank.Controllers.CreateClientController">
+<AnchorPane prefHeight="700.0" prefWidth="850.0" styleClass="create_client_container" stylesheets="@../Styles/CreateClient.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.benedict.ClientManagement.Controllers.CreateClientController">
    <children>
        <Text layoutX="34.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sukurti naują autorių" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0" />
        <VBox fillWidth="false" layoutX="21.0" layoutY="46.0" prefHeight="500.0" prefWidth="600.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="40.0">

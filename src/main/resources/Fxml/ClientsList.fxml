@@ -14,7 +14,7 @@
             stylesheets="@../Styles/Dashboard.css"
             xmlns="http://javafx.com/fxml/1"
             xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.benedict.minibank.Controllers.ClientController">
+            fx:controller="com.benedict.ClientManagement.Controllers.ClientController">
 
     <!-- Header Section -->
     <AnchorPane layoutX="10.0" layoutY="14.0" prefHeight="70.0" prefWidth="830.0" styleClass="dashboard-header">
