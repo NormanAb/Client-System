@@ -9,12 +9,12 @@ public class App extends Application {
 
 
     @Override
-    public void start( Stage stage){
+    public void start(Stage stage){
         //Model.getInstance().getViewFactory().showLoginWindow();
         if (Model.getInstance().hasRegisteredUsers()){
             Model.getInstance().getViewFactory().showLoginWindow();
         } else {
-            AlertUtility.displayInformation("Prieš pradedant darbą su sistema turite užregistruoti bent vieną vartotoją");
+            AlertUtility.displayInformation("Before doing anything, you must first create a user");
             Model.getInstance().getViewFactory().showRegisterWindow();
         }
 

@@ -21,13 +21,4 @@ public class DatabaseDriver {
         return conn;
     }
 
-    public void closeConnection() {
-        try {
-            if (conn != null && !conn.isClosed()) {
-                conn.close();
-            }
-        } catch (SQLException e) {
-            logger.severe("Error closing database connection: " + e.getMessage());
-        }
-    }
 }

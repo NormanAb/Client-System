@@ -16,10 +16,7 @@ public class ViewFactory {
     private static final Logger logger = Logger.getLogger(ViewFactory.class.getName());
     private final ObjectProperty<MenuOptions> adminSelectedMenuItem;
     private AnchorPane createClientView;
-    private AnchorPane clientsView;
-    private AnchorPane depositView;
     private AnchorPane ClientsView;
-    private AnchorPane createAuthorView;
     private AnchorPane incomeView;
     private AnchorPane createIncome;
     private AnchorPane dashboardView;
@@ -199,7 +196,7 @@ public class ViewFactory {
 
         Stage stage = new Stage();
         try {
-            Image icon = new Image(String.valueOf(getClass().getResource("/Images/icon.png")));
+            Image icon = new Image(String.valueOf(getClass().getResource("/Images/Logo.png")));
             stage.getIcons().add(icon);
             logger.info("Stage icon set successfully.");
         } catch(Exception e) {
@@ -208,9 +205,9 @@ public class ViewFactory {
         }
         stage.setResizable(false);
         stage.setScene(scene);
-        stage.setTitle("Benedikto knygynas");
+        stage.setTitle("Client manager");
         stage.show();
-        logger.info("Stage shown with title 'Benedikto knygynas'.");
+        logger.info("Stage shown with title 'Client manager'.");
     }
 
     public void closeStage(Stage stage){

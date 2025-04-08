@@ -18,7 +18,7 @@ public class ClientDAO {
     }
 
     public void create(Client client) {
-        String sql = "INSERT INTO Clients (Name, Surname, Email, Phone, Date, User_id, Status) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO Clients (Name, Surname, Email, Phone, Date, Status) VALUES (?, ?, ?, ?, ?, ?)";
         int userId = Model.getInstance().getLoggedUserId();
         try (PreparedStatement stmt = this.conn.prepareStatement(sql)) {
             stmt.setString(1, client.getName());
@@ -27,8 +27,7 @@ public class ClientDAO {
             stmt.setString(4, client.getPhone());
             // Use the client's local date
             stmt.setString(5, client.getDate().toString());
-            stmt.setInt(6, userId);
-            stmt.setString(7, client.getStatus());
+            stmt.setString(6, client.getStatus());
             stmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();

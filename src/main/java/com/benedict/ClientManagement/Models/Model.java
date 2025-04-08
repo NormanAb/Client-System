@@ -90,10 +90,7 @@ public class Model {
             logger.warning("Invalid credentials for user: " + userName);
         }
     }
-
-    public String getLoggedUserName() {
-        return currentUser != null ? currentUser.usernameProperty() : null;
-    }
+    
 
     public int getLoggedUserId() {
         if (currentUser != null) {

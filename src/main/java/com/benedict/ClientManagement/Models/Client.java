@@ -49,12 +49,4 @@ public class Client {
     public void setStatus(String status) { this.status.set(status); }
     public void setDate(LocalDate date) { this.date.set(date); }
 
-    // Property getters (for TableView bindings)
-    public SimpleIntegerProperty idProperty() { return id; }
-    public SimpleStringProperty nameProperty() { return name; }
-    public SimpleStringProperty surnameProperty() { return surname; }
-    public SimpleStringProperty emailProperty() { return email; }
-    public SimpleStringProperty phoneProperty() { return phone; }
-    public SimpleStringProperty statusProperty() { return status; }
-    public SimpleObjectProperty<LocalDate> dateProperty() { return date; }
 }

@@ -28,7 +28,7 @@
          <children>
             <Label text="Login" styleClass="title-label"/>
             <Label text="Username:" styleClass="form-label"/>
-            <TextField fx:id="payee_address_fld"
+            <TextField fx:id="address_fld"
                        promptText="Enter your username"
                        styleClass="input-field"/>
             <Label text="Password:" styleClass="form-label"/>

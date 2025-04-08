@@ -11,7 +11,7 @@ import java.util.ResourceBundle;
 
 public class LoginController implements Initializable {
     public Label password_lbl;
-    public TextField payee_address_fld;
+    public TextField address_fld;
     public PasswordField password_fld;
     public Button login_btn;
     public Label error_lbl;
@@ -24,12 +24,12 @@ public class LoginController implements Initializable {
     //login code
     public void onLogin() {
         Stage stage = (Stage) error_lbl.getScene().getWindow();
-        Model.getInstance().checkCredentials(payee_address_fld.getText(), password_fld.getText());
+        Model.getInstance().checkCredentials(address_fld.getText(), password_fld.getText());
             if (Model.getInstance().getAdminSuccessFlag()) {
                 Model.getInstance().getViewFactory().showAdminWindow();
                 Model.getInstance().getViewFactory().closeStage(stage);
             }else{
-                payee_address_fld.setText("");
+                address_fld.setText("");
                 password_fld.setText("");
                 AlertUtility.displayError("Neteisingi prisijungimo duomenys.");
                 //error_lbl.setText("Neteisingi prisijungimo duomenys");
