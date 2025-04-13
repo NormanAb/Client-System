@@ -181,6 +181,12 @@
     -fx-background-color: #e0e1dd;
 }
 
+.dashboard-form-label {
+    -fx-text-fill: #333333;
+    -fx-font-family: "Calibri Light";
+    -fx-font-size: 14px;
+}
+
 /* Unified header style for all tabs */
 .unified-header {
     -fx-background-color: #1b263b;  /* Dark blue-gray */

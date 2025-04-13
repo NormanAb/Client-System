@@ -4,46 +4,73 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="13d01d61-06e7-4708-99a3-22339bcb8d49" name="Changes" comment="Tuesday lesson changes">
+    <list default="true" id="13d01d61-06e7-4708-99a3-22339bcb8d49" name="Changes" comment="Added menu and dashboard design">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Styles/dark.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Styles/default.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Styles/gray.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Styles/white.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/clientManaging.db" beforeDir="false" afterPath="$PROJECT_DIR$/clientManaging.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pdfs/report_-1.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/pdfs/report_-1.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benedict/ClientManagement/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/benedict/ClientManagement/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benedict/ClientManagement/Controllers/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/benedict/ClientManagement/Controllers/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benedict/ClientManagement/Models/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/benedict/ClientManagement/Models/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benedict/ClientManagement/Models/DatabaseDriver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/benedict/ClientManagement/Models/DatabaseDriver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benedict/ClientManagement/Models/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/benedict/ClientManagement/Models/Model.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benedict/ClientManagement/Services/dao/ClientDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/benedict/ClientManagement/Services/dao/ClientDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benedict/ClientManagement/Views/ViewFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/benedict/ClientManagement/Views/ViewFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benedict/ClientManagement/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ClientManagement/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benedict/ClientManagement/Controllers/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ClientManagement/Controllers/ClientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benedict/ClientManagement/Controllers/CreateClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ClientManagement/Controllers/CreateClientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benedict/ClientManagement/Controllers/CreateReportController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ClientManagement/Controllers/CreateReportController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benedict/ClientManagement/Controllers/DashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ClientManagement/Controllers/DashboardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benedict/ClientManagement/Controllers/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ClientManagement/Controllers/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benedict/ClientManagement/Controllers/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ClientManagement/Controllers/MenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benedict/ClientManagement/Controllers/RegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ClientManagement/Controllers/RegisterController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benedict/ClientManagement/Controllers/ReportController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ClientManagement/Controllers/ReportController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benedict/ClientManagement/Controllers/RouteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ClientManagement/Controllers/RouteController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benedict/ClientManagement/Controllers/SettingsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ClientManagement/Controllers/SettingsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benedict/ClientManagement/Models/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ClientManagement/Models/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benedict/ClientManagement/Models/ClientStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ClientManagement/Models/ClientStatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benedict/ClientManagement/Models/DatabaseDriver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ClientManagement/Models/DatabaseDriver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benedict/ClientManagement/Models/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ClientManagement/Models/Model.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benedict/ClientManagement/Models/Report.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ClientManagement/Models/Report.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benedict/ClientManagement/Models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ClientManagement/Models/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benedict/ClientManagement/Services/dao/ClientDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ClientManagement/Services/dao/ClientDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benedict/ClientManagement/Services/dao/GenericDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ClientManagement/Services/dao/GenericDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benedict/ClientManagement/Services/dao/ReportDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ClientManagement/Services/dao/ReportDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benedict/ClientManagement/Services/dao/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ClientManagement/Services/dao/UserDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benedict/ClientManagement/Utilities/AlertUtility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ClientManagement/Utilities/AlertUtility.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benedict/ClientManagement/Utilities/DialogueUtility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ClientManagement/Utilities/DialogueUtility.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benedict/ClientManagement/Utilities/PDFGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ClientManagement/Utilities/PDFGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benedict/ClientManagement/Utilities/UserAuthUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ClientManagement/Utilities/UserAuthUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benedict/ClientManagement/Views/MenuOptions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ClientManagement/Views/MenuOptions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benedict/ClientManagement/Views/ViewFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ClientManagement/Views/ViewFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/ClientsList.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/ClientsList.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/CreateClient.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/CreateClient.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/Dashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Dashboard.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/Login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Login.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/Menu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Menu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/Register.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Register.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/Reports.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Reports.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/Settings.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Settings.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Styles/Dashboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Styles/Dashboard.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="SET_USER_NAME_GLOBALLY" value="false" />
   </component>
-  <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;NormanAb&quot;
-  }
-}</component>
-  <component name="GithubPullRequestsUISettings">
-    <option name="selectedUrlAndAccountId">
-      <UrlAndAccount>
-        <option name="accountId" value="e2de0cac-91bd-4bb2-9f9c-711dd7479873" />
-        <option name="url" value="https://github.com/NormanAb/benediktas-IA-library.git" />
-      </UrlAndAccount>
-    </option>
-  </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+        <option name="mavenHome" value="Use Maven wrapper" />
       </MavenGeneralSettings>
     </option>
   </component>
@@ -55,18 +82,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Start.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Start.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Normanas/Desktop/CompSci IA/Latest CS IA/benediktas-IA-library"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="Start" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="com.benedict.ClientManagement.App" />
+      <option name="MAIN_CLASS_NAME" value="com.ClientManagement.App" />
       <module name="minibank" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -96,26 +124,11 @@
       <option name="presentableId" value="LOCAL−00002" />
       <updated>1742892727723</updated>
     </task>
-    <task id="LOCAL−00003" summary="Tuesday lesson changes">
-      <option name="closed" value="true" />
-      <created>1743492812597</created>
-      <option name="number" value="LOCAL−00003" />
-      <option name="presentableId" value="LOCAL−00003" />
-      <updated>1743492812597</updated>
-    </task>
-    <task id="LOCAL−00004" summary="Tuesday lesson changes">
-      <option name="closed" value="true" />
-      <created>1743492894699</created>
-      <option name="number" value="LOCAL−00004" />
-      <option name="presentableId" value="LOCAL−00004" />
-      <updated>1743492894699</updated>
-    </task>
-    <option name="localTasksCounter" value="5" />
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added menu and dashboard design" />
-    <MESSAGE value="Tuesday lesson changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Tuesday lesson changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added menu and dashboard design" />
   </component>
 </project>

@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Text?>
 
 <AnchorPane xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.benedict.ClientManagement.Controllers.ReportController"
+            fx:controller="com.ClientManagement.Controllers.ReportController"
             prefHeight="750.0" prefWidth="850.0"
             styleClass="dashboard"
             stylesheets="@../Styles/Dashboard.css">
