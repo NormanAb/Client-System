@@ -121,15 +121,31 @@ public class DashboardController implements Initializable {
      * This image can be used, for example, to embed into a PDF.
      */
     public BufferedImage captureBarChartSnapshot() {
-        // Call snapshot() on the instance newClientBarChart
+        // Force CSS and layout updates.
+        newClientBarChart.applyCss();
+        newClientBarChart.layout();
+        // Capture snapshot.
         WritableImage snapshot = newClientBarChart.snapshot(new SnapshotParameters(), null);
-        BufferedImage bufferedImage = SwingFXUtils.fromFXImage(snapshot, null);
-        return bufferedImage;
+        BufferedImage image = SwingFXUtils.fromFXImage(snapshot, null);
+        System.out.println("Bar chart image size: " + snapshot.getWidth() + "x" + snapshot.getHeight());
+        return image;
     }
 
     public BufferedImage capturePieChartSnapshot() {
+        // Force CSS and layout updates.
+        clientsPieChart.applyCss();
+        clientsPieChart.layout();
+        // Capture snapshot.
         WritableImage snapshot = clientsPieChart.snapshot(new SnapshotParameters(), null);
-        BufferedImage bufferedImage = SwingFXUtils.fromFXImage(snapshot, null);
-        return bufferedImage;
+        BufferedImage image = SwingFXUtils.fromFXImage(snapshot, null);
+        System.out.println("Pie chart image size: " + snapshot.getWidth() + "x" + snapshot.getHeight());
+        return image;
+    }
+
+
+    public void refreshDashboard() {
+        updateClientCounts();
+        populatePieChart();
+        populateNewClientsBarChart();
     }
 }

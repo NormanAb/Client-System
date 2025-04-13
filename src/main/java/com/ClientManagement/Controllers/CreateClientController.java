@@ -48,13 +48,24 @@ public class CreateClientController implements Initializable {
             status = ClientStatus.ACTIVE.name();
         }
 
+        if (name.isEmpty() || surname.isEmpty() || email.isEmpty() || phone.isEmpty()) {
+            AlertUtility.displayError("All fields are required to add a client.");
+            error_lbl.setText("All fields must be filled out.");
+            return;
+        }
+
         // Create a new client using the selected variables.
         Model.getInstance().createClient(name, surname, email, phone, status);
 
+        // Reload the clients in the Model
         Model.getInstance().loadClients();
-        Model.getInstance().getViewFactory().getAdminSelectedMenuItem().set(MenuOptions.CLIENT_LIST);
-        AlertUtility.displayInformation("Client saved");
 
+        // Switch to the client list view
+        Model.getInstance().getViewFactory().getAdminSelectedMenuItem().set(MenuOptions.CLIENT_LIST);
+
+        Model.getInstance().getViewFactory().getDashboardController().refreshDashboard();
+
+        AlertUtility.displayInformation("Client saved");
         emptyFields();
     }
 
