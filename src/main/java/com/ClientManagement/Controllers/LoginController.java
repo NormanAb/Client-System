@@ -31,8 +31,8 @@ public class LoginController implements Initializable {
             }else{
                 address_fld.setText("");
                 password_fld.setText("");
-                AlertUtility.displayError("Neteisingi prisijungimo duomenys.");
-                //error_lbl.setText("Neteisingi prisijungimo duomenys");
+                AlertUtility.displayError("Incorrect login data");
+                error_lbl.setText("Check username or password");
             }
         }
 
