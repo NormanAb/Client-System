@@ -4,33 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="13d01d61-06e7-4708-99a3-22339bcb8d49" name="Changes" comment="4/13/2025 changes">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clientManaging.db" beforeDir="false" afterPath="$PROJECT_DIR$/clientManaging.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pdfs/report_-1.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/pdfs/report_-1.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ClientManagement/Controllers/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ClientManagement/Controllers/ClientController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ClientManagement/Controllers/CreateClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ClientManagement/Controllers/CreateClientController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ClientManagement/Controllers/CreateReportController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ClientManagement/Controllers/DashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ClientManagement/Controllers/DashboardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ClientManagement/Controllers/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ClientManagement/Controllers/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ClientManagement/Controllers/RegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ClientManagement/Controllers/RegisterController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ClientManagement/Controllers/SettingsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ClientManagement/Controllers/SettingsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ClientManagement/Utilities/DialogueUtility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ClientManagement/Utilities/DialogueUtility.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/Authors.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/Settings.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Settings.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Styles/Color Pallete codes" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Styles/CreateClient.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Styles/Deposit.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Styles/Transaction-cell.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Styles/Transactions.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Styles/accounts.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Styles/dark.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Styles/default.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Styles/gray.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Styles/testing.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Styles/white.css" beforeDir="false" />
-    </list>
+    <list default="true" id="13d01d61-06e7-4708-99a3-22339bcb8d49" name="Changes" comment="Final" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -141,12 +115,21 @@
       <option name="project" value="LOCAL" />
       <updated>1744563489802</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Final">
+      <option name="closed" value="true" />
+      <created>1744576361510</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1744576361510</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added menu and dashboard design" />
     <MESSAGE value="4/13/2025 changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="4/13/2025 changes" />
+    <MESSAGE value="Final" />
+    <option name="LAST_COMMIT_MESSAGE" value="Final" />
   </component>
 </project>

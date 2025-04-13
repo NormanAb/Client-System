@@ -63,8 +63,6 @@ public class CreateClientController implements Initializable {
         // Switch to the client list view
         Model.getInstance().getViewFactory().getAdminSelectedMenuItem().set(MenuOptions.CLIENT_LIST);
 
-        // Now, refresh the dashboard (if it’s still open) so that its counts and charts update immediately.
-        // (The ViewFactory method getDashboardController() ensures the dashboard is loaded.)
         Model.getInstance().getViewFactory().getDashboardController().refreshDashboard();
 
         AlertUtility.displayInformation("Client saved");
