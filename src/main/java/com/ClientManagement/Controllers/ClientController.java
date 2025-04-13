@@ -14,55 +14,44 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-
 public class ClientController implements Initializable {
     @FXML
     public MenuItem delete_btn;
     @FXML
     private Button addClient_btn;
-
     @FXML
     private TableView<Client> clients_table;
-
     @FXML
     private TableColumn<Client, Integer> colId;
-
     @FXML
     private TableColumn<Client, String> colName;
-
     @FXML
     private TableColumn<Client, String> colSurname;
-
     @FXML
     private TableColumn<Client, String> colEmail;
-
     @FXML
     private TableColumn<Client, String> colPhone;
-
     @FXML
     private TableColumn<Client, String> colStatus;
 
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        initTableColumns(); // Initialize table columns
-        loadClientData();   // Load data into the table
+        initTableColumns();
+        loadClientData();
         Model.getInstance().getClients();
         setRowFactoryForClientsTable();
 
-
-        delete_btn.setOnAction(event ->onDeleteClient());
+        delete_btn.setOnAction(event -> onDeleteClient());
         addClient_btn.setOnAction(event -> onCreateClient());
 
         Model.getInstance().getViewFactory().getAdminSelectedMenuItem().addListener((obs, oldVal, newVal) -> {
             if (newVal == MenuOptions.CLIENT_LIST) {
-                loadClientData(); // Reload data when returning to this view
+                loadClientData();
             }
         });
     }
 
     private void loadClientData() {
-        // Fetch client data from the Model and populate the table
         ObservableList<Client> clients = Model.getInstance().getClients();
         Model.getInstance().loadClients();
         clients_table.setItems(Model.getInstance().getClients());
@@ -70,14 +59,11 @@ public class ClientController implements Initializable {
 
     @FXML
     private void onCreateClient() {
-        // Change the menu to the createClient screen
         Model.getInstance().getViewFactory().getAdminSelectedMenuItem().set(MenuOptions.CREATE_CLIENT);
     }
 
-
     private void initTableColumns() {
-        // Map TableColumns to their corresponding properties
-        colId.setCellValueFactory(new PropertyValueFactory<>("id")); // Maps to idProperty()
+        colId.setCellValueFactory(new PropertyValueFactory<>("id"));
         colName.setCellValueFactory(new PropertyValueFactory<>("name"));
         colSurname.setCellValueFactory(new PropertyValueFactory<>("surname"));
         colEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
@@ -102,27 +88,28 @@ public class ClientController implements Initializable {
         Optional<Client> result = DialogueUtility.showEditClientDialogue(client);
         result.ifPresent(updatedClient -> {
             Model.getInstance().updateClient(client);
-            // Force the table view to refresh so changes are immediately visible:
-            clients_table.refresh();
+            clients_table.refresh(); // Force table refresh after edit.
+            // Optionally, update the dashboard if visible:
+            Model.getInstance().getViewFactory().getDashboardController().refreshDashboard();
             System.out.println("Update result");
         });
     }
 
     private void onDeleteClient() {
-        Client selectedClient = (Client) clients_table.getSelectionModel().getSelectedItem();
+        Client selectedClient = clients_table.getSelectionModel().getSelectedItem();
         if (selectedClient == null) {
             AlertUtility.displayError("Error selecting client");
+            return;
         }
 
-        boolean confirmed = AlertUtility.displayConfirmation(
-                "Are you sure you want to delete client?"
-        );
-
+        boolean confirmed = AlertUtility.displayConfirmation("Are you sure you want to delete client?");
         if (confirmed) {
             Model.getInstance().deleteClient(selectedClient.getId());
             ObservableList<Client> clients = clients_table.getItems();
             clients.remove(selectedClient);
             AlertUtility.displayInformation("Client has been removed successfully");
+            // Update the dashboard after deletion.
+            Model.getInstance().getViewFactory().getDashboardController().refreshDashboard();
         }
     }
 }

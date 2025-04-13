@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 import javafx.scene.Scene;
@@ -22,10 +23,10 @@ import java.util.logging.Logger;
 public class SettingsController implements Initializable {
     private static final Logger logger = Logger.getLogger(SettingsController.class.getName());
 
-    // Full path to sqlite3 executable. Make sure sqlite3.exe exists here
+    // Full path to sqlite3 executable – make sure sqlite3.exe exists at this location
     private static final String SQLITE3_EXECUTABLE = "C:\\Users\\Normanas\\Desktop\\sqlite3\\sqlite3.exe";
 
-    // Theme stylesheet paths – ensure these files exist in your resources/Styles folder.
+    // Theme stylesheet paths (ensure these files exist in your resources/Styles folder)
     private static final String DEFAULT_THEME = "/Styles/default.css";
     private static final String WHITE_THEME = "/Styles/white.css";
     private static final String GRAY_THEME = "/Styles/gray.css";
@@ -34,54 +35,32 @@ public class SettingsController implements Initializable {
     @FXML
     private Button createBackup_btn;
 
-    @FXML
-    private Button loadBackup_btn; // (Load backup not implemented)
 
-    @FXML
-    private ComboBox<String> colorPicker_cbox;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         logger.info("Initializing SettingsController");
 
-        // Populate the ComboBox with theme options – including "Default"
-        colorPicker_cbox.getItems().addAll("Default", "White", "Gray", "Dark");
-        colorPicker_cbox.getSelectionModel().select("Default");
-        logger.info("Color picker initialized with options: Default, White, Gray, Dark");
 
-        // Set up the backup creation event.
+        // Set up the backup creation event using a FileChooser.
         createBackup_btn.setOnAction(event -> {
             logger.info("Create Backup button clicked");
-            createSQLDump("database.db", "backup.sql");
-        });
-
-        // Log load backup button click (functionality not implemented)
-        loadBackup_btn.setOnAction(event -> {
-            logger.info("Load Backup button clicked (functionality not implemented)");
-        });
-
-        // Set up background theme changer: When a user selects a color, update all Scenes.
-        colorPicker_cbox.setOnAction(event -> {
-            String selected = colorPicker_cbox.getSelectionModel().getSelectedItem();
-            logger.info("Background color option selected: " + selected);
-            String themeCss;
-            switch(selected.toLowerCase()){
-                case "white":
-                    themeCss = WHITE_THEME;
-                    break;
-                case "gray":
-                    themeCss = GRAY_THEME;
-                    break;
-                case "dark":
-                    themeCss = DARK_THEME;
-                    break;
-                case "default":
-                default:
-                    themeCss = DEFAULT_THEME;
-                    break;
+            // Get the current stage from the button
+            Stage stage = (Stage) createBackup_btn.getScene().getWindow();
+            // Create a FileChooser for saving the backup file
+            FileChooser fileChooser = new FileChooser();
+            fileChooser.setTitle("Save SQL Backup");
+            fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("SQL Backup Files", "*.sql"));
+            File outputFile = fileChooser.showSaveDialog(stage);
+            if (outputFile != null) {
+                // Use the selected file's absolute path as the output path
+                createSQLDump("database.db", outputFile.getAbsolutePath());
+            } else {
+                logger.info("No file was selected for the backup.");
             }
-            updateTheme(themeCss);
         });
+
+
     }
 
     /**
@@ -127,7 +106,7 @@ public class SettingsController implements Initializable {
             int exitCode = process.waitFor();
             if (exitCode == 0) {
                 logger.info("SQL backup created successfully: " + outputPath);
-                // Show an alert with the absolute path.
+                // Show an alert with the absolute path of the backup file.
                 AlertUtility.displayInformation("SQL backup created successfully and stored at: " +
                         new File(outputPath).getAbsolutePath());
             } else {
